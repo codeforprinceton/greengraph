@@ -6,9 +6,9 @@ Welcome to the Princeton Energy Repository
 Using data from PSEG, EIA, EPA, NJ Clean Energy Program and other agencies, develop technology and visualizations that will analyze and display Princeton’s greenhouse gas emissions over time. Create simple quantitative comparisons that will help residents, businesses and other community members understand the impact their efforts to reduce energy consumption can have on Princeton’s greenhouse gas emissions as a whole.
 
 Resources
-PSEG electric and gas usage for Princeton commercial and residential properties 2009 to current 
-EIA (U.S. Energy Information Administration) state energy consumption data
-EPA (Environmental Protection Agency) Greenhouse Gas Equivalencies Calculator
+- PSEG electric and gas usage for Princeton commercial and residential properties 2009 to current 
+- EIA (U.S. Energy Information Administration) state energy consumption data
+- EPA (Environmental Protection Agency) Greenhouse Gas Equivalencies Calculator
 
 ## Dataset Information
 Data from 2009 for Gas and Electric usage in Princeton Township and Boro, categorized by Industrial, Commercial, and Residential.
