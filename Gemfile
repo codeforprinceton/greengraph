@@ -17,6 +17,8 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 # for easy csv file importing
 gem 'fastercsv'
+# import progressbar
+gem 'ruby-progressbar'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
