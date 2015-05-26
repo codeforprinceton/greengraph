@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass'
 # for nice icons
 gem 'font-awesome-rails'
+# for easy csv file importing
+gem 'fastercsv'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
