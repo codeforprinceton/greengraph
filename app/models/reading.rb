@@ -16,4 +16,21 @@ class Reading < ActiveRecord::Base
         end
         return result
     end
+    
+    def self.yeardaterange(data, startdate, enddate)
+        result = data.where(read_date: DateTime.new(startdate)..(DateTime.new(enddate) - 1.month))
+        result = result.pluck(:read_date).map{|readdate| readdate.strftime("%B, %Y").gsub(/,/, '')}
+        return result
+    end
+    
+    def self.yeardatarange(data, type, startdate, enddate)
+        result = data.where(read_date: DateTime.new(startdate)..(DateTime.new(enddate) - 1.month))
+        if type == "gas"
+            result = result.pluck(:gas_billed)
+        elsif type == "electric"
+            result = result.pluck(:electric_billed)
+        end
+        return result
+    end
+
 end
