@@ -1,6 +1,11 @@
-<h1 align="center"> Welcome to Princeton Greengraphs</h1>
+<h1 align="center">Welcome to Princeton Greengraphs</h1>
+<h3 align="center">View historic and current emissions information for Princeton, NJ</h3>
 <br/><br/>
-<%= render partial: 'chart' %>
-<script>
-    <%= render partial: 'chart.js.erb' %>
-</script>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2 well">
+        <ul class="nav nav-pills nav-justified nav-bordered">
+            <li><%= link_to analytics_path do %><i class="glyphicon glyphicon-tasks"></i>  Analytics<% end %></li>
+            <li><%= link_to api_path do %><i class="glyphicon glyphicon-link"></i>  API<% end %></li>
+        </ul>
+    </div>
+</div>
