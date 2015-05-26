@@ -58,5 +58,5 @@ var options = {
     //draw the total gas usage bar chart
     var cty = document.getElementById("allgaschart").getContext("2d");
     cty.canvas.width  = $('#allgaschartcontainer').innerWidth() - 50;
-    var SubscribersChart = new Chart(cty).Bar(data, options);
+    var allgaschart = new Chart(cty).Bar(data, options);
 });
