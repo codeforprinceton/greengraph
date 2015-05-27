@@ -1,7 +1,6 @@
 == Greengraphs app README
-
+{<img src="https://codeclimate.com/github/slacker87/ptonEnergy/badges/gpa.svg" />}[https://codeclimate.com/github/slacker87/ptonEnergy]   {<img src="https://codeclimate.com/github/slacker87/ptonEnergy/badges/coverage.svg" />}[https://codeclimate.com/github/slacker87/ptonEnergy/coverage]
 
 === Initial setup:
 * import csv data into the database via 'rake db:seed'
 
-{<img src="https://codeclimate.com/github/slacker87/ptonEnergy/badges/gpa.svg" />}[https://codeclimate.com/github/slacker87/ptonEnergy]
