@@ -63,6 +63,8 @@
     top: 35%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0px);
+    -ms-transform:  translate3d(-50%, -50%, 0px); /* IE 9 */
+    -webkit-transform:  translate3d(-50%, -50%, 0px); /* Chrome, Safari, Opera */
     font-weight: normal;
     text-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 }
@@ -85,6 +87,10 @@
   .main-title h3 {
 	font-size: 1em;
   }
+  
+  .homenav > li {
+    margin-bottom:10px;
+  }
 }
 
 
@@ -96,5 +102,9 @@
 
   .main-title h3 {
 	font-size: 1.5em;
+  }
+  
+  .homenav > li {
+    margin-bottom:10px;
   }
 }
