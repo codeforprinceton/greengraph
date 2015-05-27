@@ -32,6 +32,11 @@
   background-color: rgba(0,0,0,0.55) !important;
 }
 
+.homenav > li > a:focus  {
+  border-radius: 5px !important;
+  background-color: rgba(0,0,0,0.75) !important;
+}
+
 /* Header */
 .large-header {
 	position: relative;

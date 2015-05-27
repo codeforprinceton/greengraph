@@ -39,6 +39,7 @@ group :development, :test do
   gem 'quiet_assets' # Turns off the Rails asset pipeline log
   gem 'bullet' # help reduce sql query speeds
   gem 'lol_dba' # helps scan for better indexing
+  gem 'brakeman' #ez security scanner
 end
 
 group :production do 

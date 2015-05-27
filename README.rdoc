@@ -3,3 +3,5 @@
 
 === Initial setup:
 * import csv data into the database via 'rake db:seed'
+
+{<img src="https://codeclimate.com/github/slacker87/ptonEnergy/badges/gpa.svg" />}[https://codeclimate.com/github/slacker87/ptonEnergy]
