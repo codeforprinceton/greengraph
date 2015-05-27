@@ -3,5 +3,48 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .nav-bordered > li {
-    border: 1px solid #ccc;
+    border: 1px solid #EA8902;
+    border-radius: 0px;
+    background-color: #222;
+}
+
+.homenav > li > a  {
+  border-radius: 0px;
+  color: #eee;
+}
+
+.homenav > li > a:hover  {
+  border-radius: 0px !important;
+  background-color: #555 !important;
+}
+
+/* Header */
+.large-header {
+	position: relative;
+	width: 100%;
+	height: 80%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+	font-family: 'Bree Serif', serif;
+}
+
+.home .large-header {
+	background-image: url('backsplash.jpg');
+	background-position: center bottom;
+}
+
+.main-title {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	color: #EA8902;
+	text-align: center;
+	top: 20%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+	font-weight: normal;
 }
