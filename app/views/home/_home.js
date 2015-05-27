@@ -12,7 +12,7 @@ $( document ).ready(function() {
         target = {x: 0, y: height};
 
         largeHeader = document.getElementById('large-header');
-        largeHeader.style.height = height - 50 +'px';
+        largeHeader.style.height = height +'px';
 
         canvas = document.getElementById('demo-canvas');
         canvas.width = width;
@@ -21,7 +21,7 @@ $( document ).ready(function() {
 
         // create particles
         circles = [];
-        for(var x = 0; x < width*0.7; x++) {
+        for(var x = 0; x < width*0.30; x++) {
             var c = new Circle();
             circles.push(c);
         }
@@ -71,8 +71,8 @@ $( document ).ready(function() {
         function init() {
             _this.pos.x = Math.random()*width;
             _this.pos.y = height+Math.random()*100;
-            _this.alpha = 0.1+Math.random()*0.3;
-            _this.scale = 0.1+Math.random()*0.3;
+            _this.alpha = 0.1+Math.random()*0.4;
+            _this.scale = 0.1+Math.random()*0.4;
             _this.velocity = Math.random();
         }
 
@@ -81,7 +81,7 @@ $( document ).ready(function() {
                 init();
             }
             _this.pos.y -= _this.velocity;
-            _this.alpha -= 0.0005;
+            _this.alpha -= 0.0006;
             ctx.beginPath();
             ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
             ctx.fillStyle = 'rgba(255,255,255,'+ _this.alpha+')';
@@ -89,4 +89,4 @@ $( document ).ready(function() {
         };
     }
 
-})();
+});

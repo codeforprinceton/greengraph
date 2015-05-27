@@ -8,11 +8,8 @@
     margin-right: 0 !important;
     overflow-x: hidden;
     }
-.navbar {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 7%;
-    padding-right: 7%;
+.navbar-fixed-top {
+    display: none;
 }
 .footer {
     position: absolute;
@@ -22,6 +19,14 @@
     z-index: 5;
     color: #ddd;
 }
+body {
+    padding-top:0px;
+}
+#nprogress .bar {
+  background: #EA8902;
+  position: fixed;
+  top: 0px !important;
+}
 </style>
 <!-- end style override -->
 
@@ -30,7 +35,7 @@
     <div id="large-header" class="large-header">
       <canvas id="demo-canvas"></canvas>
       <div class="main-title">
-        <h1>Princeton <i>Greengraphs</i></h1>
+        <h1>Greengraph</h1>
         <h3>Open source analytics data for Princeton</h3>
         <br/><br/>
         <ul class="nav nav-pills nav-justified nav-bordered homenav">

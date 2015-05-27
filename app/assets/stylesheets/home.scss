@@ -3,19 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .nav-bordered > li {
-    border: 1px solid #EA8902;
-    border-radius: 0px;
-    background-color: #222;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.25);
+    margin-left: 5px;
 }
 
 .homenav > li > a  {
-  border-radius: 0px;
+  border-radius: 5px;
   color: #eee;
+  font-size: 1.2em;
+  text-shadow: none;
+}
+
+.homenav > li > a > i {
+    font-size: .9em;
+}
+
+.homenav > li {
+    display: inline-block !important;
+    width: 32% !important;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 }
 
 .homenav > li > a:hover  {
-  border-radius: 0px !important;
-  background-color: #555 !important;
+  border-radius: 5px !important;
+  background-color: rgba(0,0,0,0.55) !important;
 }
 
 /* Header */
@@ -32,19 +45,33 @@
 }
 
 .home .large-header {
-	background-image: url('backsplash.jpg');
 	background-position: center bottom;
+	background-image: url('backsplash.jpg');
+}
+
+.home .large-header canvas {
+	background: linear-gradient( rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25));
 }
 
 .main-title {
 	position: absolute;
 	margin: 0;
 	padding: 0;
-	color: #EA8902;
-	text-align: center;
-	top: 20%;
-	left: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
-	font-weight: normal;
+    color: rgba(60,60,60, 0.82);
+    text-align: center;
+    top: 35%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0px);
+    font-weight: normal;
+    text-shadow: 5px 5px 5px rgba(0,0,0,0.2);
 }
+
+.main-title h1 {
+	font-size: 8em;
+}
+
+.main-title h3 {
+	font-size: 2.5em;
+}
+
+
