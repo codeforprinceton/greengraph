@@ -4,3 +4,5 @@
 === Initial setup:
 * import csv data into the database via 'rake db:seed'
 
+=== Before you make a pull request
+* Run `brakeman .` and fix any security warnings
