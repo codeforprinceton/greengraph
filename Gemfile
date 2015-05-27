@@ -40,6 +40,7 @@ group :development, :test do
   gem 'bullet' # help reduce sql query speeds
   gem 'lol_dba' # helps scan for better indexing
   gem 'brakeman' #ez security scanner
+  gem 'rubocop' #ez formatting scanner
 end
 
 group :production do 

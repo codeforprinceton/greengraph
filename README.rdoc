@@ -6,3 +6,4 @@
 
 === Before you make a pull request
 * Run `brakeman .` and fix any security warnings
+* Fix any Houndci errors
