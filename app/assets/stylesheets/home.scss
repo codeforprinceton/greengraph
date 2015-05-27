@@ -55,9 +55,9 @@
 }
 
 .main-title {
-	position: absolute;
-	margin: 0;
-	padding: 0;
+    position: absolute;
+    margin: 0;
+    padding: 0;
     color: rgba(60,60,60, 0.82);
     text-align: center;
     top: 35%;
@@ -101,7 +101,21 @@
   }
 
   .main-title h3 {
-	font-size: 1.5em;
+	font-size: 1.2em;
+  }
+  
+  .homenav > li {
+    margin-bottom:10px;
+  }
+}
+@media screen and (min-width: 701px) and (max-width: 1300px) {
+
+  .main-title h1 {
+	font-size: 8em;
+  }
+
+  .main-title h3 {
+	font-size: 1.9em;
   }
   
   .homenav > li {
