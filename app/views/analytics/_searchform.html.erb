@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-sm-12">
+  <form id="nl-form" class="nl-form">
+	I want to learn about
+					<select>
+						<option value="1" selected>Gas</option>
+						<option value="2">Electricity</option>
+					</select> usage in Princeton
+					<select>
+						<option value="1" selected>Boro</option>
+						<option value="2">Township</option>
+					</select>
+					 from 
+					<select>
+						<option value="1">2009</option>
+					 	<option value="1">2010</option>
+					 	<option value="2">2011</option>
+					 	<option value="3" selected>2012</option>
+					 	<option value="4">2013</option>
+					 	<option value="5">2014</option>
+					</select>
+					 to 
+					 
+					<select>
+						<option value="1">2009</option>
+					 	<option value="1">2010</option>
+					 	<option value="2">2011</option>
+					 	<option value="3">2012</option>
+					 	<option value="4">2013</option>
+					 	<option value="5" selected>2014</option>
+					</select>
+					<!--<input type="text" value="" placeholder="any city" data-subline="For example: <em>Los Angeles</em> or <em>New York</em>"/>-->
+						
+					<br/>
+					<div align="center">
+					    <button class="nl-submit" type="submit">Graph it!</button>
+					</div>
+					<div class="nl-overlay"></div>
+				</form>
+  </div>
+</div>
+		<script>
+			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+		</script>

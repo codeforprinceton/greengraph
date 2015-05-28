@@ -19,4 +19,7 @@ class AnalyticsController < ApplicationController
       @residentialgasbreakread = Reading.yeardaterange(resgasboro, 2009, 2010)
       @residentialgasbreakbilled = Reading.yeardatarange(resgasboro, "gas", 2009, 2010)
   end
+  
+  def search
+  end
 end
