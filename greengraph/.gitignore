@@ -10,13 +10,8 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
-/greengraph/db/*.sqlite3
-/greengraph/db/*.sqlite3-journal
-
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/greengraph/log/*
 !/log/.keep
 /tmp
-/greengraph/tmp
