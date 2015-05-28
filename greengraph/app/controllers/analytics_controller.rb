@@ -40,8 +40,8 @@ class AnalyticsController < ApplicationController
                    '2013' => 2013,
                    '2014' => 2014 }
       #for location dropdowns
-      @location = { 'Boro' => 'boro',
-                   'Township' => 'twp'}
+      @location = { 'Boro' => 'PRINCETON BORO',
+                   'Township' => 'PRINCETON TWP'}
   end
   
   def search
@@ -52,6 +52,12 @@ class AnalyticsController < ApplicationController
     @location = daterange_params[:location]
     @type = daterange_params[:type]
     @class = daterange_params[:business_class]
+    @datehigh = @date + 1
+    initaldata = Reading.getbill(@type, @class, @location)
+    @dataread = Reading.yeardaterange(initaldata, @date, @datehigh)
+    @databilled = Reading.yeardatarange(initaldata, @type, @date, @datehigh)
+    puts "got data"
+    @class = @class.downcase
     render partial: 'analytics/graphs/chartdata.js.erb'
   end
   
