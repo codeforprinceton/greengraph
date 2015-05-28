@@ -31,8 +31,30 @@ class AnalyticsController < ApplicationController
       @industrialelectricbreakbilled = Reading.yeardatarange(indelectricboro, "electric", 2009, 2010)
       @residentialelectricbreakread = Reading.yeardaterange(reselectricboro, 2009, 2010)
       @residentialelectricbreakbilled = Reading.yeardatarange(reselectricboro, "electric", 2009, 2010)
+      
+      #for date range dropdowns
+      @daterange = { '2009' => 2009,
+                   '2010' => 2010,
+                   '2011' => 2011,
+                   '2012' => 2012,
+                   '2013' => 2013,
+                   '2014' => 2014 }
+      #for location dropdowns
+      @location = { 'Boro' => 'boro',
+                   'Township' => 'twp'}
   end
   
   def search
+  end
+  
+  def daterangechart
+    @date = daterange_params[:year].to_i
+    render partial: 'graphs/chartdata.js.erb'
+  end
+  
+  private
+  
+  def daterange_params
+    params.permit(:location, :type, :year)
   end
 end
