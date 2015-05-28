@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  read_date: 2015-05-26 04:22:09
+  city_code: MyText
+  business_class: MyText
+  gas_billed: 9.99
+  gas_customer: 
+  electric_billed: 9.99
+  electric_customer: 
+
+two:
+  read_date: 2015-05-26 04:22:09
+  city_code: MyText
+  business_class: MyText
+  gas_billed: 9.99
+  gas_customer: 
+  electric_billed: 9.99
+  electric_customer: 
