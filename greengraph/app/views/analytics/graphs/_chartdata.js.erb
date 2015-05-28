@@ -1,0 +1,13 @@
+$(document).ready(function() {
+
+//make sure the spinner stays off if the page loaded correctly
+var spinnerlocation = "#<%= @type %><%= @class %>chartspinner"
+var chartlocation = "#<%= @type %><%= @class %>chart"
+var chartlocationcontainer = "#<%= @type %><%= @class %>chartcontainer"
+$(spinnerlocation).removeClass('spinneron')
+$(spinnerlocation).addClass('spinneroff')
+
+//ugly hack to clear old chart on refresh
+  $(chartlocation).remove();
+  $(chartlocationcontainer).append('<canvas id='+chartlocation+'></canvas>');
+});

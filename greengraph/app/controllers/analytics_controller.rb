@@ -49,12 +49,15 @@ class AnalyticsController < ApplicationController
   
   def daterangechart
     @date = daterange_params[:year].to_i
-    render partial: 'graphs/chartdata.js.erb'
+    @location = daterange_params[:location]
+    @type = daterange_params[:type]
+    @class = daterange_params[:business_class]
+    render partial: 'analytics/graphs/chartdata.js.erb'
   end
   
   private
   
   def daterange_params
-    params.permit(:location, :type, :year)
+    params.permit(:location, :type, :year, :business_class)
   end
 end
