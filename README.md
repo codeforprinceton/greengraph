@@ -28,6 +28,7 @@ Data from 2009 for Gas and Electric usage in Princeton Township and Boro, catego
 
 ## Cleaned Dataset
 An attempt to clean the Energy dataset is underway and the first draft is available under <b> cleanDataset </b> in .xls format. 
+Please make no lossy modifications, add computed columns.
 
 ## Original Dataset
 The original dataset is located under <b> originalDataset </b>
