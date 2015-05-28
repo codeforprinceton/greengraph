@@ -56,7 +56,6 @@ class AnalyticsController < ApplicationController
     initaldata = Reading.getbill(@type, @class, @location)
     @dataread = Reading.yeardaterange(initaldata, @date, @datehigh)
     @databilled = Reading.yeardatarange(initaldata, @type, @date, @datehigh)
-    puts "got data"
     @class = @class.downcase
     render partial: 'analytics/graphs/chartdata.js.erb'
   end

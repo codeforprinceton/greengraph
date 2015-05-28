@@ -1,13 +1,27 @@
 <div class="row">
     <div class="col-sm-6">
-        <h4 align="center">Gas usage from residential sector for 2009 from the Princeton Boro</h4>
+        <h4 align="center">Gas usage from the residential sector for <%= select 'daterangechart', 'gasresidential',  @daterange, {:class => "form-control", :remote => true}  %> from Princeton <%= select 'locationrangechart', 'gasresidential',  @location, {:class => "form-control", :remote => true}  %></h4>
         <div id="gasresidentialchartcontainer">
+          <div id="gasresidentialchartspinner" class="spinner spinneroff">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
             <canvas style="height: 300px;" id="gasresidentialchart"></canvas>
         </div>
     </div>
     <div class="col-sm-6">
-        <h4 align="center">Electric usage from residential sector for 2009 from the Princeton Boro</h4>
+        <h4 align="center">Electric usage from the residential sector for <%= select 'daterangechart', 'electricresidential',  @daterange, {:class => "form-control", :remote => true}  %> from Princeton <%= select 'locationrangechart', 'electricresidential',  @location, {:class => "form-control", :remote => true}  %></h4>
         <div id="electricresidentialchartcontainer">
+          <div id="electricresidentialchartspinner" class="spinner spinneroff">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
             <canvas style="height: 300px;" id="electricresidentialchart"></canvas>
         </div>
     </div>
@@ -15,4 +29,38 @@
 <script>
     <%= render partial: 'gasresidentialchart.js.erb' %>
     <%= render partial: 'electricresidentialchart.js.erb' %>
+</script>
+
+<!-- on timeframe dropdown change, update things -->
+<script>
+  $("#daterangechart_gasresidential").change(function(){
+  $("#gasresidentialchart").addClass('transparent')
+  $("#gasresidentialchartspinner").removeClass('spinneroff')
+  $("#gasresidentialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_gasresidential").val(), type: "gas", location: $("#locationrangechart_gasresidential").val(), business_class: 'Residential'});
+});
+</script>
+<script>
+  $("#daterangechart_electricresidential").change(function(){
+  $("#electricresidentialchart").addClass('transparent')
+  $("#electricresidentialchartspinner").removeClass('spinneroff')
+  $("#electricresidentialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_electricresidential").val(), type: "electric", location: $("#locationrangechart_electricresidential").val(), business_class: 'Residential'});
+});
+</script>
+<script>
+  $("#locationrangechart_electricresidential").change(function(){
+  $("#electricresidentialchart").addClass('transparent')
+  $("#electricresidentialchartspinner").removeClass('spinneroff')
+  $("#electricresidentialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_electricresidential").val(), type: "electric", location: $("#locationrangechart_electricresidential").val(), business_class: 'Residential'});
+});
+</script>
+<script>
+  $("#locationrangechart_gasresidential").change(function(){
+  $("#gasresidentialchart").addClass('transparent')
+  $("#gasresidentialchartspinner").removeClass('spinneroff')
+  $("#gasresidentialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_gasresidential").val(), type: "gas", location: $("#locationrangechart_gasresidential").val(), business_class: 'Residential'});
+});
 </script>
