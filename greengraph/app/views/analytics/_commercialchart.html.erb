@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h4 align="center">Gas usage from commercial sector for 2009 from the Princeton Boro</h4>
+        <div id="gascommercialchartcontainer">
+            <canvas style="height: 300px;" id="gascommercialchart"></canvas>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <h4 align="center">Electric usage from commercial sector for 2009 from the Princeton Boro</h4>
+        <div id="electriccommercialchartcontainer">
+            <canvas style="height: 300px;" id="electriccommercialchart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+    <%= render partial: 'gascommercialchart.js.erb' %>
+    <%= render partial: 'electriccommercialchart.js.erb' %>
+</script>
