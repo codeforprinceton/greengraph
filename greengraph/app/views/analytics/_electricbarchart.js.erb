@@ -3,23 +3,23 @@ All this logic will automatically be available in application.js.*/
 
 $(document).ready(function() {
 
-var datagas = {
+var dataelectric = {
     labels: ["Commercial", "Residential"],
     datasets: [
         {
-            label: "Gas usage in THM",
+            label: "Electric usage in Kw",
             fillColor: "rgba(220,220,220,0.2)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [<%= @commercialgas%>, <%= @residentialgas %>]
+            data: [<%= @commercialelectric%>, <%= @residentialelectric %>]
         }
     ]
 };
 
-var optionsgas = {
+var optionselectric = {
     //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
     scaleBeginAtZero : true,
 
@@ -53,10 +53,10 @@ var optionsgas = {
 };
 
 //ugly hack to clear old chart on refresh
-  $('#allgaschart').remove();
-  $('#allgaschartcontainer').append('<canvas id="allgaschart"></canvas>');
+  $('#allelectricchart').remove();
+  $('#allelectricchartcontainer').append('<canvas id="allelectricchart"></canvas>');
     //draw the total gas usage bar chart
-    var cty = document.getElementById("allgaschart").getContext("2d");
-    cty.canvas.width  = $('#allgaschartcontainer').innerWidth() - 50;
-    var allgaschart = new Chart(cty).Bar(datagas, optionsgas);
+    var cty = document.getElementById("allelectricchart").getContext("2d");
+    cty.canvas.width  = $('#allelectricchartcontainer').innerWidth() - 50;
+    var allelectricchart = new Chart(cty).Bar(dataelectric, optionselectric);
 });

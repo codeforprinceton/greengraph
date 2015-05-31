@@ -7,10 +7,17 @@ class AnalyticsController < ApplicationController
       indgastwp = Reading.getbill("gas", "Industrial", "PRINCETON TWP")
       resgasboro = Reading.getbill("gas", "Residential", "PRINCETON BORO")
       resgastwp = Reading.getbill("gas", "Residential", "PRINCETON TWP")
+      comelectricboro = Reading.getbill("electric", "Commercial", "PRINCETON BORO")
+      comelectrictwp = Reading.getbill("electric", "Commercial", "PRINCETON TWP")
+      indelectricboro = Reading.getbill("electric", "Industrial", "PRINCETON BORO")
+      indelectrictwp = Reading.getbill("electric", "Industrial", "PRINCETON TWP")
+      reselectricboro = Reading.getbill("electric", "Residential", "PRINCETON BORO")
+      reselectrictwp = Reading.getbill("electric", "Residential", "PRINCETON TWP")
       #sum them up for the totals graph
-      @commercialgas = Reading.billsum("gas", comgasboro, comgastwp)
-      @industrialgas = Reading.billsum("gas", indgasboro, indgastwp)
+      @commercialgas = Reading.billsum("gas", comgasboro, comgastwp) + Reading.billsum("gas", indgasboro, indgastwp)
       @residentialgas = Reading.billsum("gas", resgasboro, resgastwp)
+      @commercialelectric = Reading.billsum("electric", comelectricboro, comelectrictwp) + Reading.billsum("electric", indelectricboro, indelectrictwp)
+      @residentialelectric = Reading.billsum("electric", reselectricboro, reselectrictwp)
       #break down gas readings per reading per year
       @commercialgasbreakread = Reading.yeardaterange(comgasboro, 2009, 2010)
       @commercialgasbreakbilled = Reading.yeardatarange(comgasboro, "gas", 2009, 2010)
@@ -18,8 +25,44 @@ class AnalyticsController < ApplicationController
       @industrialgasbreakbilled = Reading.yeardatarange(indgasboro, "gas", 2009, 2010)
       @residentialgasbreakread = Reading.yeardaterange(resgasboro, 2009, 2010)
       @residentialgasbreakbilled = Reading.yeardatarange(resgasboro, "gas", 2009, 2010)
+      @commercialelectricbreakread = Reading.yeardaterange(comelectricboro, 2009, 2010)
+      @commercialelectricbreakbilled = Reading.yeardatarange(comelectricboro, "electric", 2009, 2010)
+      @industrialelectricbreakread = Reading.yeardaterange(indelectricboro, 2009, 2010)
+      @industrialelectricbreakbilled = Reading.yeardatarange(indelectricboro, "electric", 2009, 2010)
+      @residentialelectricbreakread = Reading.yeardaterange(reselectricboro, 2009, 2010)
+      @residentialelectricbreakbilled = Reading.yeardatarange(reselectricboro, "electric", 2009, 2010)
+      
+      #for date range dropdowns
+      @daterange = { '2009' => 2009,
+                   '2010' => 2010,
+                   '2011' => 2011,
+                   '2012' => 2012,
+                   '2013' => 2013,
+                   '2014' => 2014 }
+      #for location dropdowns
+      @location = { 'Boro' => 'PRINCETON BORO',
+                   'Township' => 'PRINCETON TWP'}
   end
   
   def search
+  end
+  
+  def daterangechart
+    @date = daterange_params[:year].to_i
+    @location = daterange_params[:location]
+    @type = daterange_params[:type]
+    @class = daterange_params[:business_class]
+    @datehigh = @date + 1
+    initaldata = Reading.getbill(@type, @class, @location)
+    @dataread = Reading.yeardaterange(initaldata, @date, @datehigh)
+    @databilled = Reading.yeardatarange(initaldata, @type, @date, @datehigh)
+    @class = @class.downcase
+    render partial: 'analytics/graphs/chartdata.js.erb'
+  end
+  
+  private
+  
+  def daterange_params
+    params.permit(:location, :type, :year, :business_class)
   end
 end

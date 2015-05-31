@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h4 align="center">Gas usage from industrial sector for <%= select 'daterangechart', 'gasindustry',  @daterange, {:class => "form-control", :remote => true}  %> from Princeton <%= select 'locationrangechart', 'gasindustry',  @location, {:class => "form-control", :remote => true}  %></h4>
+        <div id="gasindustrialchartcontainer">
+          <div id="gasindustrialchartspinner" class="spinner spinneroff">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+            <canvas style="height: 300px;" id="gasindustrialchart"></canvas>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <h4 align="center">Electric usage from industrial sector for <%= select 'daterangechart', 'electricindustry',  @daterange, {:class => "form-control", :remote => true}  %> from Princeton <%= select 'locationrangechart', 'electricindustry',  @location, {:class => "form-control", :remote => true}  %></h4>
+        <div id="electricindustrialchartcontainer">
+          <div id="electricindustrialchartspinner" class="spinner spinneroff">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+            </div>
+            <canvas style="height: 300px;" id="electricindustrialchart"></canvas>
+        </div>
+    </div>
+</div>
+<script>
+    <%= render partial: 'gasindustrialchart.js.erb' %>
+    <%= render partial: 'electricindustrialchart.js.erb' %>
+</script>
+
+<!-- on timeframe dropdown change, update things -->
+<script>
+  $("#daterangechart_gasindustry").change(function(){
+  $("#gasindustrialchart").addClass('transparent')
+  $("#gasindustrialchartspinner").removeClass('spinneroff')
+  $("#gasindustrialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_gasindustry").val(), type: "gas", location: $("#locationrangechart_gasindustry").val(), business_class: 'Industrial'});
+});
+</script>
+<script>
+  $("#daterangechart_electricindustry").change(function(){
+  $("#electricindustrialchart").addClass('transparent')
+  $("#electricindustrialchartspinner").removeClass('spinneroff')
+  $("#electricindustrialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_electricindustry").val(), type: "electric", location: $("#locationrangechart_electricindustry").val(), business_class: 'Industrial'});
+});
+</script>
+<script>
+  $("#locationrangechart_electricindustry").change(function(){
+  $("#electricindustrialchart").addClass('transparent')
+  $("#electricindustrialchartspinner").removeClass('spinneroff')
+  $("#electricindustrialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_electricindustry").val(), type: "electric", location: $("#locationrangechart_electricindustry").val(), business_class: 'Industrial'});
+});
+</script>
+<script>
+  $("#locationrangechart_gasindustry").change(function(){
+  $("#gasindustrialchart").addClass('transparent')
+  $("#gasindustrialchartspinner").removeClass('spinneroff')
+  $("#gasindustrialchartspinner").addClass('spinneron')
+  $.post( "analytics/range", {year: $("#daterangechart_gasindustry").val(), type: "gas", location: $("#locationrangechart_gasindustry").val(), business_class: 'Industrial'});
+});
+</script>
