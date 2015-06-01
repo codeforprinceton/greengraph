@@ -1,9 +1,9 @@
 class Reading < ActiveRecord::Base
     def self.getbill(type, sector, location)
         if type == "gas"
-            result = self.where('business_class = ? and gas_billed IS NOT NULL and city_code = ?', sector, location)
+            result = self.where('business_class = ? and gas_billed IS NOT NULL and city_code = ?', sector, location.upcase)
         elsif type == "electric"
-            result = self.where('business_class = ? and electric_billed IS NOT NULL and city_code = ?', sector, location)
+            result = self.where('business_class = ? and electric_billed IS NOT NULL and city_code = ?', sector, location.upcase)
         end
         return result
     end

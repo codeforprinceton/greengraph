@@ -40,7 +40,7 @@ class AnalyticsController < ApplicationController
       #for date range dropdowns
       @daterange = Reading.pluck(:read_date).map!{|x| x.strftime("%Y").gsub(/,/, '')}.uniq
       #for location dropdowns
-      @location = Reading.pluck(:city_code).uniq
+      @location = Reading.pluck(:city_code).uniq.map!{|x| x.titleize}
   end
   
   def search
