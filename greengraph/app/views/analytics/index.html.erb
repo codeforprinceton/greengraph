@@ -1,5 +1,6 @@
 <h1 align="center">Analytics</h1>
 <h4 align="center"><%= link_to "Create your own graphs", search_path %></h4>
+<h2 align="center">Total energy used since 2009: <b><%= number_with_precision(@totalenergy, :precision => 0, :delimiter => ',') %> kWh</b></h2>
 <%= render partial: 'mainbarchart' %>
 <%= render partial: 'commercialchart' %>
 <%= render partial: 'industrialchart' %>

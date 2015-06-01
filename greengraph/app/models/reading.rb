@@ -32,5 +32,8 @@ class Reading < ActiveRecord::Base
         end
         return result
     end
-
+    
+    def self.thmtokwh(x)
+        x * 29.3001111
+    end
 end

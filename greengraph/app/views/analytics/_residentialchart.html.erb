@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-6">
-        <h4 align="center">Gas usage from the residential sector for <%= select 'daterangechart', 'gasresidential',  @daterange, {:class => "form-control", :remote => true}  %> from Princeton <%= select 'locationrangechart', 'gasresidential',  @location, {:class => "form-control", :remote => true}  %></h4>
+        <h4 align="center">Gas usage from the residential sector for <%= select 'daterangechart', 'gasresidential',  @daterange, {:class => "form-control", :remote => true}  %> from <%= select 'locationrangechart', 'gasresidential',  @location, {:class => "form-control", :remote => true}  %></h4>
         <div id="gasresidentialchartcontainer">
           <div id="gasresidentialchartspinner" class="spinner spinneroff">
                 <div class="rect1"></div>
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div class="col-sm-6">
-        <h4 align="center">Electric usage from the residential sector for <%= select 'daterangechart', 'electricresidential',  @daterange, {:class => "form-control", :remote => true}  %> from Princeton <%= select 'locationrangechart', 'electricresidential',  @location, {:class => "form-control", :remote => true}  %></h4>
+        <h4 align="center">Electric usage from the residential sector for <%= select 'daterangechart', 'electricresidential',  @daterange, {:class => "form-control", :remote => true}  %> from <%= select 'locationrangechart', 'electricresidential',  @location, {:class => "form-control", :remote => true}  %></h4>
         <div id="electricresidentialchartcontainer">
           <div id="electricresidentialchartspinner" class="spinner spinneroff">
                 <div class="rect1"></div>

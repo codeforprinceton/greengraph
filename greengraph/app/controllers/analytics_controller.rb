@@ -32,6 +32,11 @@ class AnalyticsController < ApplicationController
       @residentialelectricbreakread = Reading.yeardaterange(reselectricboro, 2009, 2010)
       @residentialelectricbreakbilled = Reading.yeardatarange(reselectricboro, "electric", 2009, 2010)
       
+      #combine gas and electric to one usage
+      @totalenergy = Reading.thmtokwh(@commercialgas) + Reading.thmtokwh(@residentialgas) + @commercialelectric + @residentialelectric
+      #convert from KWH to Kw by dividing average hours in a month
+      #NOT USED @totalenergy = @totalenergy / 730.484
+      
       #for date range dropdowns
       @daterange = { '2009' => 2009,
                    '2010' => 2010,
@@ -40,8 +45,7 @@ class AnalyticsController < ApplicationController
                    '2013' => 2013,
                    '2014' => 2014 }
       #for location dropdowns
-      @location = { 'Boro' => 'PRINCETON BORO',
-                   'Township' => 'PRINCETON TWP'}
+      @location = Reading.pluck(:city_code).uniq
   end
   
   def search
