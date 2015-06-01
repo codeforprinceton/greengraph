@@ -4,7 +4,7 @@ class ApiController < ApplicationController
   
   def raw
       @alldata = Reading.all
-      return render :json => @alldata.to_json
+      return render :json => @alldata.to_json(:except => [:created_at, :updated_at, :id])
   end
   
   def rawtemp
