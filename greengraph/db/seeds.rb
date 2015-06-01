@@ -2,3 +2,4 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
 Rake::Task['csv:import'].invoke
+Rake::Task['csv:importtemp'].invoke

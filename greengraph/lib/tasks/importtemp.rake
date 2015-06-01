@@ -3,16 +3,18 @@ require 'csv'
 namespace :csv do
 
   desc "Import Temperature CSV Data"
-  task :import => :environment do
+  task :importtemp => :environment do
     progressbar = ProgressBar.create(:title => 'Temperature CSV file import', :total => 1452)
     csv_file_path = 'db/seeds/Temprature.csv'
     puts "Starting data import -- please wait"
     CSV.foreach(csv_file_path) do |row|
-      Temperature.create!({
-        :date => if row[0] then row[0].to_datetime else row[0] end,
-        :temp => row[1]
-      })
-      progressbar.increment
+        (1..12).each do |x| 
+        Temperature.create!({
+          :date => (x + "/" + row[0]).to_datetime, #grab the year from row 0, and add the # for the month
+          :temp => row[x] #grab the corresponding temp from the correct colunm for each month
+        })
+        progressbar.increment
+        end
     end
   end
 end
