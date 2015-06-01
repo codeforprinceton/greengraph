@@ -6,4 +6,9 @@ class ApiController < ApplicationController
       @alldata = Reading.all
       return render :json => @alldata.to_json
   end
+  
+  def rawtemp
+      @alldata = Temperature.all
+      return render :json => @alldata.to_json
+  end
 end
