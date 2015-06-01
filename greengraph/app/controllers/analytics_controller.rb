@@ -38,12 +38,7 @@ class AnalyticsController < ApplicationController
       #NOT USED @totalenergy = @totalenergy / 730.484
       
       #for date range dropdowns
-      @daterange = { '2009' => 2009,
-                   '2010' => 2010,
-                   '2011' => 2011,
-                   '2012' => 2012,
-                   '2013' => 2013,
-                   '2014' => 2014 }
+      @daterange = Reading.pluck(:read_date).map!{|x| x.strftime("%Y").gsub(/,/, '')}.uniq
       #for location dropdowns
       @location = Reading.pluck(:city_code).uniq
   end
