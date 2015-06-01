@@ -37,6 +37,19 @@ class AnalyticsController < ApplicationController
       #convert from KWH to Kw by dividing average hours in a month
       #NOT USED @totalenergy = @totalenergy / 730.484
       
+      #convert kwh to co2 in metric tons
+      @totalco2 = @totalenergy / 1428
+      #convert kwh to cars on road
+      @totalcars = @totalenergy / 10000
+      #convert kwh to miles/year per passenger car
+      @totalmiles = @totalenergy * 1.6
+      #average home energy use
+      @totalhome = @totalenergy / 10000
+      #acres of forest needed
+      @totalacres = @totalenergy / 1666.6667
+      #tree seedlings grown for 10 years needed
+      @totalseedlings = @totalenergy / 55.5556
+      
       #for date range dropdowns
       @daterange = Reading.pluck(:read_date).map!{|x| x.strftime("%Y").gsub(/,/, '')}.uniq
       #for location dropdowns
