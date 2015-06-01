@@ -8,7 +8,7 @@ class ApiController < ApplicationController
   end
   
   def rawtemp
-      @alldata = Temperature.all
-      return render :json => @alldata.to_json
+      @alldata = Temperature.all.only(:date, :temp)
+      return render :json => @alldata.to_json(:except => [:created_at, :updated_at, :id])
   end
 end
