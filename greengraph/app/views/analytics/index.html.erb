@@ -1,6 +1,11 @@
 <h1 align="center">Analytics</h1>
 <h4 align="center"><%= link_to "Create your own graphs", search_path %></h4>
-<h2 align="center">Total energy used since 2009: <b><%= number_with_precision(@totalenergy, :precision => 0, :delimiter => ',') %> kWh</b></h2>
+<h2 align="center">The last 5 years of Princeton energy usage: <b><%= number_with_precision(@totalenergy, :precision => 0, :delimiter => ',') %> kWh</b></h2>
+<h2 align="center">Thats <b><%= number_with_precision(@totalco2, :precision => 0, :delimiter => ',') %></b> tons of CO2</h2>
+<h2 align="center">The equivilent of <b><%= number_with_precision(@totalcars, :precision => 0, :delimiter => ',') %></b> cars on the road</h2>
+<h2 align="center">Or <b><%= number_with_precision(@totalmiles, :precision => 0, :delimiter => ',') %></b> miles driven</h2>
+<h2 align="center">We would need <b><%= number_with_precision(@totalacres / 5, :precision => 0, :delimiter => ',') %></b> acres of forest to offset that usage</h2>
+<h2 align="center">Or we would have to have planted <b><%= number_with_precision(@totalseedlings / 5, :precision => 0, :delimiter => ',') %></b> seedlings ten years ago </h2>
 <%= render partial: 'mainbarchart' %>
 <%= render partial: 'commercialchart' %>
 <%= render partial: 'industrialchart' %>
