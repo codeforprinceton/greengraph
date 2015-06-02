@@ -1,0 +1,28 @@
+<script src="http://code.highcharts.com/maps/highmaps.js"></script>
+
+<div id="container" style="min-width: 310px; max-width: 400px"></div>
+
+
+
+<script type="text/javascript">
+$(function () {
+    $.getJSON("../princeton.geojson.json",function(geojson){
+     // Initiate the chart
+    $('#container').slideDown().highcharts('Map', {
+        series: [{
+            mapData: geojson
+        }],
+            title : {
+                text : 'GeoJSON of Princeton'
+            },
+
+            mapNavigation: {
+                enabled: true,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+    }); 
+    }); 
+});
+</script>

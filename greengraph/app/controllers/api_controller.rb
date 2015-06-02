@@ -13,7 +13,7 @@ class ApiController < ApplicationController
   end
   
   def geojson
-      @data = File.read("#{Rails.root}/public/princeton.geojson")
-      return render :json => @data
+      @data = File.read("#{Rails.root}/public/princeton.geojson.json")
+      return render :json => @data.to_json
   end
 end
