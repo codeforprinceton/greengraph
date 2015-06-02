@@ -6,62 +6,11 @@
 <div id="map" class="map"></div>
 </div>
 <script>
-var styles = {
-  'LineString': [new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'green',
-      width: 1
-    })
-  })],
-  'MultiLineString': [new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'green',
-      width: 1
-    })
-  })],
-  'MultiPolygon': [new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'yellow',
-      width: 1
-    }),
-    fill: new ol.style.Fill({
-      color: 'rgba(255, 255, 0, 0.1)'
-    })
-  })],
-  'Polygon': [new ol.style.Style({
-    stroke: new ol.style.Stroke({
-      color: 'blue',
-      lineDash: [4],
-      width: 3
-    }),
-    fill: new ol.style.Fill({
-      color: 'rgba(0, 0, 255, 0.5)'
-    })
-  })]
-};
-
-var styleFunction = function(feature, resolution) {
-  return styles[feature.getGeometry().getType()];
-};
-
-var vectorSource;
-$.getJSON("../princeton.geojson.json",function(geojson){
-vectorSource = new ol.source.Vector({
-  features: (new ol.format.GeoJSON()).readFeatures(geojson)
-});
-});
-
-var vectorLayer = new ol.layer.Vector({
-  source: vectorSource,
-  style: styleFunction
-});
-
 var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
       source: new ol.source.OSM()
-    }),
-    vectorLayer
+    })
   ],
   target: 'map',
   controls: ol.control.defaults({
@@ -71,10 +20,20 @@ var map = new ol.Map({
   }),
   view: new ol.View({
    center: ol.proj.transform([-74.66651916503906, 40.36341913876339], 'EPSG:4326', 'EPSG:3857'),
-    zoom: 13
+    zoom: 12
   })
   
 });
+
+    var vectorLayer = new ol.layer.Vector({
+        title: 'added Layer',
+        source: new ol.source.Vector({
+          url: '../princeton.geojson.json',
+          format: new ol.format.GeoJSON()
+        })
+    });
+    map.addLayer(vectorLayer);
+    console.log(vectorLayer);
 </script>
 
 <script type="text/javascript">
