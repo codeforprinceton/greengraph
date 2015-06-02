@@ -2,16 +2,39 @@
 
 <div id="container" style="min-width: 310px; max-width: 400px"></div>
 
-
-
 <script type="text/javascript">
 $(function () {
+       // Prepare random data
+    var data = [
+        {
+            "code": "Princeton",
+            "value": 728
+        },
+        {
+            "code": "Princeton University",
+            "value": 710
+        }];
     $.getJSON("../princeton.geojson.json",function(geojson){
      // Initiate the chart
-    $('#container').slideDown().highcharts('Map', {
-        series: [{
-            mapData: geojson
-        }],
+    $('#container').slideDown().highcharts('Map',
+        {colorAxis: {
+            },
+
+            series : [{
+                data : data,
+                mapData: geojson,
+                joinBy: ['name', 'code'],
+                name: 'Princeton',
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.properties.name}'
+                }
+            }],
             title : {
                 text : 'GeoJSON of Princeton'
             },
@@ -21,7 +44,7 @@ $(function () {
                 buttonOptions: {
                     verticalAlign: 'bottom'
                 }
-            },
+            }
     }); 
     }); 
 });
