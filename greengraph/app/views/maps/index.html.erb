@@ -6,6 +6,70 @@
 <div id="map" class="map"></div>
 </div>
 <script>
+var styles = {
+  'LineString': [new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'green',
+      width: 1
+    })
+  })],
+  'MultiLineString': [new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'green',
+      width: 1
+    })
+  })],
+  'MultiPolygon': [new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'yellow',
+      width: 1
+    }),
+    fill: new ol.style.Fill({
+      color: 'rgba(255, 255, 0, 0.1)'
+    })
+  })],
+  'Polygon': [new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'blue',
+      lineDash: [4],
+      width: 3
+    }),
+    fill: new ol.style.Fill({
+      color: 'rgba(0, 0, 255, 0.1)'
+    })
+  })],
+  'GeometryCollection': [new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'magenta',
+      width: 2
+    }),
+    fill: new ol.style.Fill({
+      color: 'magenta'
+    }),
+    image: new ol.style.Circle({
+      radius: 10,
+      fill: null,
+      stroke: new ol.style.Stroke({
+        color: 'magenta'
+      })
+    })
+  })],
+  'Circle': [new ol.style.Style({
+    stroke: new ol.style.Stroke({
+      color: 'red',
+      width: 2
+    }),
+    fill: new ol.style.Fill({
+      color: 'rgba(255,0,0,0.2)'
+    })
+  })]
+};
+
+var styleFunction = function(feature, resolution) {
+  return styles[feature.getGeometry().getType()];
+};
+
+
 var map = new ol.Map({
   layers: [
     new ol.layer.Tile({
@@ -30,7 +94,8 @@ var map = new ol.Map({
         source: new ol.source.Vector({
           url: '../princeton.geojson.json',
           format: new ol.format.GeoJSON()
-        })
+        }),
+        style: styleFunction
     });
     map.addLayer(vectorLayer);
     console.log(vectorLayer);
