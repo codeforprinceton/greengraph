@@ -11,4 +11,9 @@ class ApiController < ApplicationController
       @alldata = Temperature.all.only(:date, :temp)
       return render :json => @alldata.to_json(:except => [:created_at, :updated_at, :id])
   end
+  
+  def geojson
+      @data = File.read("#{Rails.root}/public/princeton.geojson")
+      return render :json => @data
+  end
 end
