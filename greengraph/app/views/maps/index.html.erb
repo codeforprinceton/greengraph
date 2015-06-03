@@ -77,18 +77,15 @@ var map = new ol.Map({
     })
   ],
   target: 'map',
-  controls: ol.control.defaults({
-    attributionOptions: /** @type {olx.control.AttributionOptions} */ ({
-      collapsible: false
-    })
-  }),
   view: new ol.View({
    center: ol.proj.transform([-74.66651916503906, 40.36341913876339], 'EPSG:4326', 'EPSG:3857'),
     zoom: 12
   })
-  
 });
 
+  zoomslider = new ol.control.ZoomSlider();
+  map.addControl(zoomslider);
+  
     var vectorLayer = new ol.layer.Vector({
         title: 'added Layer',
         source: new ol.source.Vector({
