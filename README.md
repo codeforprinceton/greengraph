@@ -32,15 +32,22 @@ http://academic.udayton.edu/kissock/http/Weather/ </a>
 Additional resources:
 - EIA (U.S. Energy Information Administration) state energy consumption data
 - EPA (Environmental Protection Agency) Greenhouse Gas Equivalencies Calculator
-- Weather Depot <a href ="http://www.weatherdatadepot.com/"> http://www.weatherdatadepot.com/ </a> for getting HDD {Heating Degree Days} and CDD (Cooling Degree Days) 
+- Weather Depot <a href ="http://www.weatherdatadepot.com/"> http://www.weatherdatadepot.com/ </a> for getting HDD {Heating Degree Days} and CDD (Cooling Degree Days)
 
 ## Usage Notes
 - Download or fork here to start contributing
 - If there are any comments, issues, or suggestions please open an Issue through the tab on the right
 
 ## Cleaned Dataset
-An attempt to clean the Energy dataset is underway and the first draft is available under <b> cleanDataset </b> in .xls format. 
+An attempt to clean the Energy dataset is underway and the first draft is available under <b> cleanDataset </b> in .xls format.
 Please make no lossy modifications, add computed columns.
 
 ## Original Dataset
 The original dataset is located under <b> originalDataset </b>
+
+## Ruby on Rails Commands
+
+- Move in to the 'greengraph' directory
+ ```Shell
+cd greengraph
+``` 
