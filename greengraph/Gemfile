@@ -21,6 +21,8 @@ gem 'fastercsv'
 gem 'ruby-progressbar'
 #nice maps and graphs
 gem 'highcharts-rails'
+#for user login/registration
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

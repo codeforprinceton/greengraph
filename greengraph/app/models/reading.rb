@@ -13,6 +13,8 @@ class Reading < ActiveRecord::Base
             result = twp.pluck(:gas_billed).sum + boro.pluck(:gas_billed).sum
         elsif type == "electric"
             result = twp.pluck(:electric_billed).sum + boro.pluck(:electric_billed).sum
+        elsif type == "All"
+            result = self.where('business_class = ? and electric_billed IS NOT NULL', sector)
         end
         return result
     end
