@@ -48,6 +48,18 @@ The original dataset is located under <b> originalDataset </b>
 ## Ruby on Rails Commands
 
 - Move in to the 'greengraph' directory
- ```Shell
+ ```bash
 cd greengraph
-``` 
+```
+- Migrate the Development Database (Make it current)
+ ```bash
+rake db:migrate RAILS_ENV=development
+```
+- Seed the newly migrated database (from the input CSV files)
+ ```bash
+rake db:seed
+```
+- Start the Rails Server - this is accessible on http://localhost:3000, if you have used the Rails default settings
+ ```bash
+ rails s
+```
