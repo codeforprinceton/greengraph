@@ -46,8 +46,21 @@ Please make no lossy modifications, add computed columns.
 The original dataset is located under <b> originalDataset </b>
 
 ## Ruby on Rails Commands
+You will need to use these commands to run the Application in Ruby on Rails...
 
 - Move in to the 'greengraph' directory
- ```Shell
+ ```
 cd greengraph
-``` 
+```
+- Migrate the Development Database (Make it current)
+ ```
+rake db:migrate RAILS_ENV=development
+```
+- Seed the newly migrated database (from the input CSV files)
+ ```
+rake db:seed
+```
+- Start the Rails Server - this is accessible on http://localhost:3000, if you have used the Rails default settings
+ ```
+rails s
+```
