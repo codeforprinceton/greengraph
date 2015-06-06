@@ -16,4 +16,7 @@ Rails.application.routes.draw do
   match 'dashboard', to: 'dashboard#index', via: 'get', as: 'dashboard'
   match 'dashboard/:id', to: 'dashboard#show', via: 'get', as: 'dashboard_item'
   devise_for :users, controllers: { sessions: "users/sessions" }
+  match 'import', to: 'import#index', via: 'get', as: 'import'
+  match 'import/submitfile', to: 'import#submitfile', via: 'post', as: 'submitfile'
+
 end
