@@ -46,6 +46,7 @@ Please make no lossy modifications, add computed columns.
 The original dataset is located under <b> originalDataset </b>
 
 ## Ruby on Rails Commands
+You will need to use these commands to run the Application in Ruby on Rails...
 
 - Move in to the 'greengraph' directory
  ```
