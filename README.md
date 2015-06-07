@@ -32,15 +32,35 @@ http://academic.udayton.edu/kissock/http/Weather/ </a>
 Additional resources:
 - EIA (U.S. Energy Information Administration) state energy consumption data
 - EPA (Environmental Protection Agency) Greenhouse Gas Equivalencies Calculator
-- Weather Depot <a href ="http://www.weatherdatadepot.com/"> http://www.weatherdatadepot.com/ </a> for getting HDD {Heating Degree Days} and CDD (Cooling Degree Days) 
+- Weather Depot <a href ="http://www.weatherdatadepot.com/"> http://www.weatherdatadepot.com/ </a> for getting HDD {Heating Degree Days} and CDD (Cooling Degree Days)
 
 ## Usage Notes
 - Download or fork here to start contributing
 - If there are any comments, issues, or suggestions please open an Issue through the tab on the right
 
 ## Cleaned Dataset
-An attempt to clean the Energy dataset is underway and the first draft is available under <b> cleanDataset </b> in .xls format. 
+An attempt to clean the Energy dataset is underway and the first draft is available under <b> cleanDataset </b> in .xls format.
 Please make no lossy modifications, add computed columns.
 
 ## Original Dataset
 The original dataset is located under <b> originalDataset </b>
+
+## Ruby on Rails Commands
+You will need to use these commands to run the Application in Ruby on Rails...
+
+- Move in to the 'greengraph' directory
+ ```
+cd greengraph
+```
+- Migrate the Development Database (Make it current)
+ ```
+rake db:migrate RAILS_ENV=development
+```
+- Seed the newly migrated database (from the input CSV files)
+ ```
+rake db:seed
+```
+- Start the Rails Server - this is accessible on http://localhost:3000, if you have used the Rails default settings
+ ```
+rails s
+```
