@@ -16,6 +16,12 @@ $white: #FFFFFF;
 $accent: #96E6B3;
 $accenttwo: #568259;
 
+
+.navbar-right > li > a {
+    transition: 0.4s all;
+}
+
+
 .accent {
     color: $accent;
 }

@@ -1,6 +1,7 @@
-<h1 align="center">Recent Data</h1>
-<h3 align="center">Below you'll find some data relating to the energy usage in Princeton over the last few years.</h3>
-<h3 align="center">Ready to add your own data? <a href="users/sign_up">Sign up</a> here.</h3>
+<h1 align="center">Let's make Princeton green</h1>
+<h3 align="center">You can <%= link_to "explore", analytics_path %> some of our historical energy data for Princeton</h3>
+<h3 align="center">Or <%= link_to "add your own home's", new_user_registration_path %> data and see how your impact helps!</h3>
 <br>
 <%= render partial: 'mainbarchart' %>
+<h3 align="center"></h3>
 <%= render partial: 'biggraph' %>
