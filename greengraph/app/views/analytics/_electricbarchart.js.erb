@@ -2,61 +2,58 @@
 All this logic will automatically be available in application.js.*/
 
 $(document).ready(function() {
-
-var dataelectric = {
-    labels: ["Commercial", "Residential"],
-    datasets: [
-        {
-            label: "Electric usage in Kw",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [<%= @commercialelectric %>, <%= @residentialelectric %>]
-        }
-    ]
-};
+  var dataelectric = [
+      {
+          label: "Commercial",
+          value: <%=@commercialelectric%>,
+          color:"#F7464A",
+          highlight: "#FF5A5E",
+      },
+      {
+          label: "Residential",
+          value: <%=@residentialelectric%>,
+          color: "#46BFBD",
+          highlight: "#5AD3D1",
+      },
+  ]
 
 var optionselectric = {
-    //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
-    scaleBeginAtZero : true,
+      //Boolean - Whether we should show a stroke on each segment
+      segmentShowStroke : true,
 
-    //Boolean - Whether grid lines are shown across the chart
-    scaleShowGridLines : true,
+      //String - The colour of each segment stroke
+      segmentStrokeColor : "#fff",
 
-    //String - Colour of the grid lines
-    scaleGridLineColor : "rgba(0,0,0,.05)",
+      //Number - The width of each segment stroke
+      segmentStrokeWidth : 2,
 
-    //Number - Width of the grid lines
-    scaleGridLineWidth : 1,
+      //Number - The percentage of the chart that we cut out of the middle
+      percentageInnerCutout : 50, // This is 0 for Pie charts
 
-    //Boolean - Whether to show horizontal lines (except X axis)
-    scaleShowHorizontalLines: true,
+      //Number - Amount of animation steps
+      animationSteps : 100,
 
-    //Boolean - Whether to show vertical lines (except Y axis)
-    scaleShowVerticalLines: true,
+      //String - Animation easing effect
+      animationEasing : "easeOutBounce",
 
-    //Boolean - If there is a stroke on each bar
-    barShowStroke : true,
+      //Boolean - Whether we animate the rotation of the Doughnut
+      animateRotate : true,
 
-    //Number - Pixel width of the bar stroke
-    barStrokeWidth : 2,
+      //Boolean - Whether we animate scaling the Doughnut from the centre
+      animateScale : false,
 
-    //Number - Spacing between each of the X value sets
-    barValueSpacing : 5,
-
-    //Number - Spacing between data sets within X values
-    barDatasetSpacing : 1,
-
+      legendTemplate : '<ul class=gas-legend>'
+                        +  '<li><span style=\"background-color:#F7464A\"></span>Commercial</li>'
+                        +  '<li><span style=\"background-color:#46BFBD\"></span>Residential</li>'
+                        + '</ul>'
 };
 
-//ugly hack to clear old chart on refresh
+  //ugly hack to clear old chart on refresh
   $('#allelectricchart').remove();
   $('#allelectricchartcontainer').append('<canvas id="allelectricchart"></canvas>');
-    //draw the total gas usage bar chart
-    var cty = document.getElementById("allelectricchart").getContext("2d");
-    cty.canvas.width  = $('#allelectricchartcontainer').innerWidth() - 50;
-    var allelectricchart = new Chart(cty).Bar(dataelectric, optionselectric);
+
+   //draw the total gas usage bar chart
+   var cty = document.getElementById("allelectricchart").getContext("2d");
+   cty.canvas.width  = $('#allelectricchartcontainer').innerWidth() - 50;
+   var allelectricchart = new Chart(cty).Doughnut(dataelectric, optionselectric);
 });
