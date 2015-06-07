@@ -150,11 +150,12 @@ class EnergyViews(object):
         hday = hdd[hdd['temp'] < 60]
         cday = cdd[cdd['temp'] > 55]
 
-        mH, cH, r_sqrH = regress(hday['temp'], hday['HDD'])
-        mC, cC, r_sqrC = regress(cday['temp'], cday['CDD'])
-
-        print 'HDD = {1} + {0} * temp (R Sq. = {2})'.format(mH, cH, r_sqrH)
-        print 'CDD = {1} + {0} * temp (R Sq. = {2})'.format(mC, cC, r_sqrC)
+        model = ps.ols(x=hday['temp'], y=hday['HDD'])
+        mH, cH = model.beta.x, model.beta.intercept
+        print model
+        model = ps.ols(x=cday['temp'], y=cday['CDD'])
+        mC, cC = model.beta.x, model.beta.intercept
+        print model
 
         xH = hday['temp']
         xC = cday['temp']
