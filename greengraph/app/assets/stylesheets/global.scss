@@ -16,11 +16,14 @@ $white: #FFFFFF;
 $accent: #96E6B3;
 $accenttwo: #568259;
 
+.accent {
+    color: $accenttwo;
+}
 
 
 body {
   padding-top: 50px;
-  font-family: 'Bree Serif', serif;
+  font-family: 'Bree Serif', serif !important;
 }
 
 //for graph spinner
