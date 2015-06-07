@@ -2,11 +2,6 @@ require 'csv'
 
 class Import < ActiveRecord::Base
   def self.parsefile(file)
-    # File.open(file, 'r') do |file_handle|
-    #   file_handle.each_line do |x|
-    #     print('hello')
-    #   end
-    # end
     CSV.foreach(file) do |row|
       Reading.create!({
             :read_date => if row[0] then row[0].to_datetime else row[0] end,
