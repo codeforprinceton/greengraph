@@ -7,3 +7,6 @@ end
 unless Temperature.last
     Rake::Task['csv:importtemp'].invoke
 end
+unless Generalenergy.last
+    Rake::Task['csv:importgeneral'].invoke
+end

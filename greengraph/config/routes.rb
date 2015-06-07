@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
   match 'about', to: 'home#about', via: 'get', as: 'about'
+  match 'start', to: 'home#getstarted', via: 'get', as: 'start'
   match 'analytics', to: 'analytics#index', via: 'get', as: 'analytics'
   match 'analytics/search', to: 'analytics#search', via: 'get', as: 'search'
   match 'analytics/range', to: 'analytics#daterangechart', via: 'post', as: 'daterangechart_path'
