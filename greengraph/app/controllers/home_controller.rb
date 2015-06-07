@@ -79,5 +79,12 @@ class HomeController < ApplicationController
       #for location dropdowns
       @location = Reading.pluck(:city_code).uniq.map!{|x| ["Former " + x.titleize, x.titleize]}
       @location += ["All"]
+      
+      
+      
+      @bigchartlabels = Generalenergy.pluck(:date).map!{|x| x.strftime("%Y").gsub(/,/, '')}.uniq
+      
+      @bigchartdata = Generalenergy.pluck(:usage)
+      
   end
 end
