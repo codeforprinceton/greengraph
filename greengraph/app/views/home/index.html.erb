@@ -31,22 +31,26 @@ body {
 <!-- end style override -->
 
 <div class="home">
-  <div class="content">
-    <div id="large-header" class="large-header">
-      <canvas id="demo-canvas"></canvas>
-      <div class="main-title">
-        <h1>Greengraph</h1>
-        <h3>Open source analytics data for Princeton</h3>
-        <br/><br/>
-        <ul class="nav nav-pills nav-justified nav-bordered homenav">
-            <li><%= link_to about_path do %><i class="glyphicon glyphicon-heart-empty"></i>  About<% end %></li>
-            <li><%= link_to analytics_path do %><i class="glyphicon glyphicon-tasks"></i>  Analytics<% end %></li>
-            <br/><br/>
-            <li><%= link_to maps_path do %><i class="glyphicon glyphicon-pushpin"></i>  Maps<% end %></li>
-            <li><%= link_to api_path do %><i class="glyphicon glyphicon-link"></i>  API<% end %></li>
-            <br/><br/>
-            <li><%= link_to new_user_session_path do %><i class="glyphicon glyphicon-pushpin"></i> Login<% end %></li>
-        </ul>
+    <div class="content">
+        <div id="large-header" class="large-header">
+            <canvas id="demo-canvas"></canvas>
+            <div class="main-title">
+                <h1>Greengraph</h1>
+                <h3>Open source analytics data for Princeton</h3>
+                <br/><br/>
+                <ul class="nav nav-pills nav-justified nav-bordered homenav">
+                    <li><%= link_to about_path do %><i class="glyphicon glyphicon-heart-empty"></i>  About<% end %></li>
+                    <li><%= link_to analytics_path do %><i class="glyphicon glyphicon-tasks"></i>  Analytics<% end %></li>
+                    <br/><br/>
+                    <li><%= link_to maps_path do %><i class="glyphicon glyphicon-pushpin"></i>  Maps<% end %></li>
+                    <li><%= link_to api_path do %><i class="glyphicon glyphicon-link"></i>  API<% end %></li>
+
+                    <li><%= link_to import_path do %><i class="glyphicon glyphicon-link"></i>  Import<% end %></li>
+                    <br/><br/>
+                    <li><%= link_to new_user_session_path do %><i class="glyphicon glyphicon-pushpin"></i> Login<% end %></li>
+                </ul>
+            </div>
+        </div>
       </div>
     </div>
 </div>

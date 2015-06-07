@@ -1,0 +1,9 @@
+<h1>Import#index</h1>
+
+
+<%= form_for(:file,
+            url: {action: 'submitfile'},
+            html: {multipart: true}) do |form| %>
+    Upload your file: <%= form.file_field("uploaded_file") %><br/>
+    <%= submit_tag("Upload file") %>
+<% end %>
