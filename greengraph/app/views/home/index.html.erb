@@ -36,13 +36,19 @@
       <canvas id="demo-canvas"></canvas>
       <div class="main-title">
         <h1>Greengraph</h1>
-        <h2 align="center">In the last 5 years, Princeton used <b class="accent"><%= number_with_precision((@totalenergy / 1000), :precision => 0, :delimiter => ',') %> mWh</b></h2>
-        <h2 align="center">Thats <b><%= number_with_precision(@totalco2, :precision => 0, :delimiter => ',') %></b> tons of CO2</h2>
-        <h2 align="center">The equivilent of <b><%= number_with_precision(@totalcars, :precision => 0, :delimiter => ',') %></b> cars on the road</h2>
-        <h2 align="center">Or <b><%= number_with_precision(@totalmiles, :precision => 0, :delimiter => ',') %></b> miles driven</h2>
-        <h2 align="center">We would need <b><%= number_with_precision(@totalacres / 5, :precision => 0, :delimiter => ',') %></b> acres of forest to offset that usage</h2>
-        <h2 align="center">Or we would have to have planted <b><%= number_with_precision(@totalseedlings / 5, :precision => 0, :delimiter => ',') %></b> seedlings ten years ago </h2>
-        <h4>Ready to help make a change?</h4>
+        <div class="panel panel-default" style="margin-top: 20px; padding-top: 0px; padding-bottom: 10px;background-color: rgba(55,55,55,0.8); color: #fff;">
+        <div class="panel-body" style="padding-top: 0px;">
+        <h2 align="center">
+            In the last 5 years, Princeton used <b class="accent"><%= number_with_precision((@totalenergy / 1000), :precision => 0, :delimiter => ',') %> mWh<%= link_to "*", about_path, class: "accent" %></b> of energy. 
+            <br/>
+            That's <b class="accent"><%= number_with_precision(@totalco2, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> tons of CO2. 
+            Equivilent to <b class="accent"><%= number_with_precision(@totalcars, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> cars on the road, or driving your car  
+            <b class="accent"><%= number_with_precision(@totalmiles, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> miles.
+            We would need <b class="accent"><%= number_with_precision(@totalacres / 5, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> acres of forest to offset that usage
+            Or we would have to have planted <b class="accent"><%= number_with_precision(@totalseedlings / 5, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> seedlings ten years ago.</h2>
+        </div>
+        </div>
+        <h2 style="color: #FFF">Ready to help make a change?</h2>
         <br/>
         <ul class="nav nav-pills nav-justified nav-bordered homenav">
           <li><%= link_to analytics_path do %></i>  Get Started<% end %></li>
