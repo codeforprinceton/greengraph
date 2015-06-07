@@ -5,12 +5,13 @@ class Reading < ActiveRecord::Base
                 finalresult = []
                 firstresult = self.where('business_class = ? and gas_billed IS NOT NULL', sector)
                 firstresult.each do |x|
-                    if !finalresult.nil? or finalresult.include?(x.read_date)
+                    if finalresult.present? and finalresult.include?(x.read_date)
                         finalresult.last.gas_billed += x.gas_billed
                     else
                         finalresult += [x]
                     end
                 end
+                result = finalresult
             else
                 result = self.where('business_class = ? and gas_billed IS NOT NULL and city_code = ?', sector, location.upcase)
             end
@@ -19,12 +20,13 @@ class Reading < ActiveRecord::Base
                 finalresult = []
                 firstresult = self.where('business_class = ? and electric_billed IS NOT NULL', sector)
                 firstresult.each do |x|
-                    if !finalresult.nil? or finalresult.include?(x.read_date)
+                    if finalresult.present? and finalresult.include?(x.read_date)
                         finalresult.last.electric_billed += x.electric_billed
                     else
                         finalresult += [x]
                     end
                 end
+                result = finalresult
             else
                 result = self.where('business_class = ? and electric_billed IS NOT NULL and city_code = ?', sector, location.upcase)
             end
