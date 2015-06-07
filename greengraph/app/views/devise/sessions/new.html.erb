@@ -82,25 +82,23 @@ transition: 0.4s all ease;
 	}
 </style>
 </style>
-<h2 style="position: absolute; left: 50%; top: 25%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-bottom: 3px solid #568259; color: #568259; font-size: 500%; ">LOG IN</h2>
+<h2 style="position: absolute; left: 48%; top: 25%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-bottom: 3px solid #568259; color: #568259; font-size: 500%; ">LOG IN</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div style="position: absolute; left: 48%; top: 40%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #568259; font-size: 150%" >
-    <%= f.email_field :email, autofocus: true, placeholder: "Email", class: "email" %>
+  <div style="position: absolute; left: 48%; top: 40%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #568259; font-size: 150%" >Email: <br><%= f.email_field :email, autofocus: true, placeholder: "Email", class: "email" %>
   </div>
 
-  <div  style="position: absolute; left: 48%; top: 49%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #568259; font-size: 150%" >
-    <%= f.password_field :password, autocomplete: "off",  class: "email", placeholder: "Password" %>
+<div style="position: absolute; left: 48%; top: 52%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #568259; font-size: 150%" >Password: <br><%= f.password_field :password, autocomplete: "off",  class: "email", placeholder: "Password" %>
   </div>
 
   <% if devise_mapping.rememberable? -%>
-  <div style="position: absolute; left: 49%; top: 59%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
+  <div style="position: absolute; left: 48%; top: 59%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me, style: "color: #568259; font-size: 150%;" %>
       </div>
   <% end -%>
 
-  <div style="position: absolute; left: 49.5%; top: 68%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
+  <div style="position: absolute; left: 48%; top: 68%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);">
     <%= f.submit "Log in", class: "sign", name: "commit" %>
   </div>
 <% end %>
