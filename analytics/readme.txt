@@ -47,6 +47,12 @@ Usage:
       - function draws a couple of plots and is an illustration of use (mostly only
         if you are using matplotlib)
 
+Changelog:
++ plots of seasonally adjusted data
++ "you are here" plots
++ short writeup
++ UK DoE paper on temprature correction
+
 To do:
 - smooth the spikes from estimated billing
 - normalize for heating/cooling degree days
