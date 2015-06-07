@@ -1,6 +1,6 @@
 <style>
 .file {
-    background: #568259;
+    background: black;
     color: white;
     border: none;
     transform: scale(2, 2);
@@ -9,24 +9,24 @@
 }
 .file:hover {
     background: white;
-    color: #568259;
+    color: black;
 }
 body {
-    background: #DBF4AD;
+    background: white;
 }
 </style> 
-<div style="position: absolute; left: 50%; top: 25%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-bottom: 3px solid #568259; color: #568259; font-size: 500%; ">IMPORT</div>  
+<div style="position: absolute; left: 50%; top: 25%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-bottom: 3px solid black; color: black; font-size: 500%; ">IMPORT</div>  
     <%= form_for(:file,
         url: {action: 'submitfile'},
         html: {multipart: true}) do |form| %>
-    <div style="position: absolute; left: 50%; top: 40%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #568259; font-size: 150%">
+    <div style="position: absolute; left: 50%; top: 40%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: black; font-size: 150%">
         Upload your file:
     </div>
-    <div style="position: absolute; left: 50%; top: 52%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #568259; font-size: 100%" >
+    <div style="position: absolute; left: 50%; top: 52%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: black; font-size: 100%" >
         <%= form.file_field("uploaded_file", class: "file") %><br/>
     </div>
     <br/>
-    <div style="position: absolute; left: 50%; top: 65%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: #568259; font-size: 125%" >
+    <div style="position: absolute; left: 50%; top: 65%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: black; font-size: 125%" >
         <%= submit_tag("Upload file", class: "file") %>
     </div>
 <% end %>
