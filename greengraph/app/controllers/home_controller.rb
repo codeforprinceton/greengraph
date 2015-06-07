@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
+      if user_signed_in?
+          return redirect_to dashboard_path
+      end
       #get all initial gas readings for each class
       comgasboro = Reading.getbill("gas", "Commercial", "PRINCETON BORO")
       comgastwp = Reading.getbill("gas", "Commercial", "PRINCETON TWP")
@@ -82,7 +85,7 @@ class HomeController < ApplicationController
       
       
       
-      @bigchartlabels = Generalenergy.pluck(:date).map!{|x| x.strftime("%Y").gsub(/,/, '')}.uniq
+      @bigchartlabels = Generalenergy.pluck(:date).map!{|x| x.strftime("%m, %Y")}
       
       @bigchartdata = Generalenergy.pluck(:usage)
       

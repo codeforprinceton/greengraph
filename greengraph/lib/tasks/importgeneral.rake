@@ -9,8 +9,8 @@ namespace :csv do
     puts "Starting data import -- please wait"
     CSV.foreach(csv_file_path) do |row|
         Generalenergy.create!({
-          :date => if row[0] then ("#{row[0][0..1].to_s}/01/#{row[0][3..-1].to_s}").to_datetime else row[0] end, #grab the year from row 0, and add the # for the month
-          :usage => row[1].gsub(/,/, '') #grab the corresponding temp from the correct colunm for each month
+          :date => if row[0] then ("01/#{row[0][0..1].to_s}/#{row[0][3..-1].to_s}").to_datetime else row[0] end, 
+          :usage => row[1]
         })
         progressbar.increment
     end
