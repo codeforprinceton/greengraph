@@ -1,24 +1,27 @@
 /* Place all the behaviors and hooks related to the matching controller here.
 All this logic will automatically be available in application.js.*/
 
+var datagas;
+var optionsgas;
+
 $(document).ready(function() {
 
-  var datagas = [
+  datagas = [
       {
           label: "Commercial",
           value: <%=@commercialgas%>,
-          color:"#F7464A",
-          highlight: "#FF5A5E",
+          color:"#A9E190",
+          highlight: "#9DEC97",
       },
       {
           label: "Residential",
           value: <%=@residentialgas%>,
-          color: "#46BFBD",
-          highlight: "#5AD3D1",
+          color: "#568259",
+          highlight: "#6EAA72",
       },
   ]
 
-  var optionsgas = {
+  optionsgas = {
       //Boolean - Whether we should show a stroke on each segment
       segmentShowStroke : true,
 
@@ -43,18 +46,20 @@ $(document).ready(function() {
       //Boolean - Whether we animate scaling the Doughnut from the centre
       animateScale : false,
 
-      legendTemplate : '<ul class=gas-legend>'
-                        +  '<li><span style=\"background-color:#F7464A\"></span>Commercial</li>'
-                        +  '<li><span style=\"background-color:#46BFBD\"></span>Residential</li>'
-                        + '</ul>'
+      legendTemplate : '<ul>'
+                       +  '<li><span style=\"background-color:#F7464A\"></span>Commercial</li>'
+                       +  '<li><span style=\"background-color:#46BFBD\"></span>Residential</li>'
+                       + '</ul>'
   };
 
   //ugly hack to clear old chart on refresh
   $('#allgaschart').remove();
-  $('#allgaschartcontainer').append('<canvas id="allgaschart" auto-legend></canvas>');
+  $('#allgaschartcontainer').append('<canvas id="allgaschart"></canvas>');
 
   //draw the total gas usage bar chart
   var cty = document.getElementById("allgaschart").getContext("2d");
   cty.canvas.width  = $('#allgaschartcontainer').innerWidth() - 50;
   var allgaschart = new Chart(cty).Doughnut(datagas, optionsgas);
+
+  //legend(document.getElementById("allgaschart"), datagas, allgaschart);
 });
