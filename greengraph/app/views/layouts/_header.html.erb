@@ -17,7 +17,7 @@
             <li><%= link_to "Analytics", analytics_path %></li>
             <li><%= link_to "Maps", maps_path %></li>
             <li><%= link_to "API", api_path %></li>
-            <!-- user sign in dropdown start -->
+            <li><%= link_to "Import", import_path %></li>
             <li>
             <% if user_signed_in? %>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -38,15 +38,9 @@
                 <ul class="dropdown-menu" role="menu">
                   <li><%= link_to "Sign in", new_user_session_path %></li>
                   <li><%= link_to "Register", new_user_registration_path %></li>
-                  <!--
-                  <li><a data-toggle="modal" data-target="#usersignup">Register</a></li>
-                  <li><a data-toggle="modal" data-target="#usersignin">Sign in</a></li>
-                  -->
                 </ul>
               <% end %>
               </li>
-            <!-- user sign in dropdown end -->
-            <li><%= link_to "API", api_path %></li>\
         </ul>
       </div>
     </div>
