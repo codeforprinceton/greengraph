@@ -39,7 +39,7 @@
         <div class="panel panel-default" style="margin-top: 20px; padding-top: 0px; padding-bottom: 10px;background-color: rgba(55,55,55,0.8); color: #fff;">
         <div class="panel-body" style="padding-top: 0px;">
         <h2 align="center">
-            Since 2009, Princeton used <b class="accent"><%= number_with_precision((@totalenergy / 1000), :precision => 0, :delimiter => ',') %> mWh<%= link_to "*", about_path, class: "accent" %></b> of energy. 
+            Since 2009, Princeton used <b class="accent"><%= number_with_precision((@totalenergy / 1000), :precision => 0, :delimiter => ',') %> MWh<%= link_to "*", about_path, class: "accent" %></b> of energy. 
             <br/>
             That's <b class="accent"><%= number_with_precision(@totalco2, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> tons of CO2. 
             Equivilent to <b class="accent"><%= number_with_precision(@totalcars, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> cars on the road, or driving your car for 
