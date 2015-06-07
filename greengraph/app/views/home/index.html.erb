@@ -23,7 +23,7 @@
         padding-top:0px;
     }
     #nprogress .bar {
-        background: #EA8902;
+        background: #568259;
         position: fixed;
         top: 0px !important;
     }
@@ -42,7 +42,7 @@
             Since 2009, Princeton used <b class="accent"><%= number_with_precision((@totalenergy / 1000), :precision => 0, :delimiter => ',') %> mWh<%= link_to "*", about_path, class: "accent" %></b> of energy. 
             <br/>
             That's <b class="accent"><%= number_with_precision(@totalco2, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> tons of CO2. 
-            Equivilent to <b class="accent"><%= number_with_precision(@totalcars, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> cars on the road, or driving your car for 
+            Equivalent to <b class="accent"><%= number_with_precision(@totalcars, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> cars on the road, or driving your car for 
             <b class="accent"><%= number_with_precision(@totalmiles, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> miles.
             We would need <b class="accent"><%= number_with_precision(@totalacres / 5, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> acres of forest to offset that usage, 
             or to have planted <b class="accent"><%= number_with_precision(@totalseedlings / 5, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> trees ten years ago.</h2>
