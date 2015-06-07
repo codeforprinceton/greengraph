@@ -1,58 +1,61 @@
 <!-- override site container for pretty backsplash on homepage -->
 <style>
-.container {
-    width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    overflow-x: hidden;
+    .container {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: hidden;
     }
-.navbar-fixed-top {
-    display: none;
-}
-.footer {
-    position: absolute;
-    right: 0px;
-    bottom: 5px;
-    margin-top: -20px;
-    z-index: 5;
-    color: #ddd;
-}
-body {
-    padding-top:0px;
-}
-#nprogress .bar {
-  background: #EA8902;
-  position: fixed;
-  top: 0px !important;
-}
+    .navbar-fixed-top {
+        display: none;
+    }
+    .footer {
+        position: absolute;
+        right: 0px;
+        bottom: 5px;
+        margin-top: -20px;
+        z-index: 5;
+        color: #ddd;
+    }
+    body {
+        padding-top:0px;
+    }
+    #nprogress .bar {
+        background: #EA8902;
+        position: fixed;
+        top: 0px !important;
+    }
 </style>
 <!-- end style override -->
 
 <div class="home">
-    <div class="content">
-        <div id="large-header" class="large-header">
-            <canvas id="demo-canvas"></canvas>
-            <div class="main-title">
-                <h1>Greengraph</h1>
-                <h3>Open source analytics data for Princeton</h3>
-                <br/><br/>
-                <ul class="nav nav-pills nav-justified nav-bordered homenav">
-                    <li><%= link_to about_path do %><i class="glyphicon glyphicon-heart-empty"></i>  About<% end %></li>
-                    <li><%= link_to analytics_path do %><i class="glyphicon glyphicon-tasks"></i>  Analytics<% end %></li>
-                    <br/><br/>
-                    <li><%= link_to maps_path do %><i class="glyphicon glyphicon-pushpin"></i>  Maps<% end %></li>
-                    <li><%= link_to api_path do %><i class="glyphicon glyphicon-link"></i>  API<% end %></li>
-
-                    <li><%= link_to import_path do %><i class="glyphicon glyphicon-link"></i>  Import<% end %></li>
-                    <br/><br/>
-                    <li><%= link_to new_user_session_path do %><i class="glyphicon glyphicon-pushpin"></i> Login<% end %></li>
-                </ul>
-            </div>
-        </div>
+  <div class="content">
+    <div id="large-header" class="large-header">
+      <canvas id="demo-canvas"></canvas>
+      <div class="main-title">
+        <h1>Greengraph</h1>
+        <h3>Open source analytics data for Princeton</h3>
+        <br/><br/>
+        <h4>The last 5 years of Princeton energy usage: 6,596,437,481 kWh</h4>
+        <h4>Thats 4,619,354 tons of CO2.</h4>
+        <h4>The equivilent of 659,644 cars on the road...</h4>
+        <h4>Or 10,554,299,969 miles driven.</h4>
+        <br/>
+        <h4>We would need 791,572 acres of forest to offset that usage</h4>
+        <h4>Or we would have to have planted 23,747,156 seedlings ten years ago</h4>
+        <br/><br/>
+        <h4>Ready to help make a change?</h4>
+        <br/>
+        <ul class="nav nav-pills nav-justified nav-bordered homenav">
+          <li><%= link_to analytics_path do %></i>  Get Started<% end %></li>
+          <br/><br/>
+        </ul>
       </div>
     </div>
+  </div>
+</div>
 </div>
 <script><%= render partial: 'rAF.js' %></script>
 <script><%= render partial: 'home.js' %></script>
