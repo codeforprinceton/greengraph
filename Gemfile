@@ -23,6 +23,8 @@ gem 'ruby-progressbar'
 gem 'highcharts-rails'
 #for user login/registration
 gem 'devise'
+#for better error tracking in production
+gem 'newrelic_rpm'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
