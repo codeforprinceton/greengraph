@@ -27,10 +27,9 @@
     </div>
 </div>
 <script>
-    <%= render partial: 'gascommercialchart.js.erb' %>
-    <%= render partial: 'electriccommercialchart.js.erb' %>
+  $.post( "analytics/range", {year: $("#daterangechart_gascommercial").val(), type: "gas", location: $("#locationrangechart_gascommercial").val(), business_class: 'Commercial'});
+  $.post( "analytics/range", {year: $("#daterangechart_electriccommercial").val(), type: "electric", location: $("#locationrangechart_electriccommercial").val(), business_class: 'Commercial'});
 </script>
-
 
 <!-- on timeframe dropdown change, update things -->
 <script>

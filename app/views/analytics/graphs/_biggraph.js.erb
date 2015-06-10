@@ -8,14 +8,14 @@ var biggraphdata = {
     datasets: [
         {
             label: "Energy usage in kWh",
-            fillColor: "rgba(220,220,220,0.2)",
-            strokeColor: "rgba(220,220,220,1)",
-            pointColor: "rgba(220,220,220,1)",
+            fillColor: "rgba(219, 244, 173, .6)",
+            strokeColor: "rgba(86, 130, 89, 1)",
+            pointColor: "rgba(86, 130, 89, 1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+            pointHighlightStroke: "rgba(86, 130, 89, 1)",
             data: [<% @bigchartdata.each do |x| %> "<%= x.to_s %>", <% end %>]
-        }
+          }
     ]
 };
 
