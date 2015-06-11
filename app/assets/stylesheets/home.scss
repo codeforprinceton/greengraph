@@ -129,3 +129,31 @@
     margin-bottom:10px;
   }
 }
+
+   #homeindex .container {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        overflow-x: hidden;
+    }
+    #homeindex .navbar-fixed-top {
+        display: none;
+    }
+    #homeindex .footer {
+        position: absolute;
+        right: 0px;
+        bottom: 5px;
+        margin-top: -20px;
+        z-index: 5;
+        color: #ddd;
+    }
+    #homeindex {
+        padding-top:0px;
+    }
+    #homeindex #nprogress .bar {
+        background: #568259;
+        position: fixed;
+        top: 0px !important;
+    }
