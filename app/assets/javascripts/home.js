@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+var bubbles = function() {
 
     var width, height, largeHeader, canvas, ctx, circles, target, animateHeader = true;
 
@@ -89,4 +89,4 @@ $( document ).ready(function() {
         };
     }
 
-});
+};
