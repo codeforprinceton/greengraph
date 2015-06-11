@@ -27,3 +27,48 @@
     background: white;
     color: #568259;
 }
+
+#signinpage .email {
+    border-radius: 3px;
+    border: none;
+    transition: 0.5s all;
+    height: 40px;
+    vertical-align: text-top;
+    color: #568259;
+    font-size: 50%;
+    text-align: center;
+    width: 130%;
+}
+#signinpage .email:focus {
+    outline: none;
+    background: #568259;
+    color: #fff;
+}
+#signinpage .sign {
+    border: none;
+    border-radius: 3px;
+    background: #568259;
+    height: 25px;
+    transform: scale(1.5, 1.5);
+    transition: 0.3s all;
+    color: white;
+}
+#signinpage .sign:hover  {
+    background: white;
+    color: #568259;
+}
+#signinpage {
+  background: #DBF4AD !important;
+  font-family: 'Bree Serif', serif !important;
+}
+#signinpage h2 {
+  font-family: 'Bree Serif', serif;
+}
+
+#signuppage {
+  background: #DBF4AD !important;
+  font-family: 'Bree Serif', serif !important;
+}
+#signuppage h2 {
+  font-family: 'Bree Serif', serif;
+}

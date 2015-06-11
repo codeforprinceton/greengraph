@@ -1,12 +1,4 @@
-<style>
-    body {
-        background: #DBF4AD !important;
-	    font-family: 'Bree Serif', serif !important;
-    }
-    h2 {
-	    font-family: 'Bree Serif', serif;
-	}
-</style>
+<% @body_id = "signuppage" %>
 <h2 style="position: absolute; left: 50%; top: 25%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-bottom: 3px solid #568259; color: #568259; font-size: 500%; ">SIGN UP</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
