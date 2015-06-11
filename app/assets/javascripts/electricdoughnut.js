@@ -1,24 +1,23 @@
 /* Place all the behaviors and hooks related to the matching controller here.
 All this logic will automatically be available in application.js.*/
 
-$(document).ready(function() {
-
-  var datagas = [
+var electricdoughnut = function(comelectric, reselectric) {
+  var dataelectric = [
       {
           label: "Commercial",
-          value: <%=@commercialgas%>,
-          color:"#CE8147",
-          highlight: "#f59a55",
+          value: comelectric,
+          color:"#70E4EF",
+          highlight: "#48efff",
       },
       {
           label: "Residential",
-          value: <%=@residentialgas%>,
-          color: "#561D25",
-          highlight: "#762833",
+          value: reselectric,
+          color: "#4D6CFA",
+          highlight: "#617eff",
       },
   ]
 
-  var optionsgas = {
+var optionselectric = {
       //Boolean - Whether we should show a stroke on each segment
       segmentShowStroke : true,
 
@@ -47,14 +46,14 @@ $(document).ready(function() {
                         +  '<li><span style=\"background-color:#F7464A\"></span>Commercial</li>'
                         +  '<li><span style=\"background-color:#46BFBD\"></span>Residential</li>'
                         + '</ul>'
-  };
+};
 
   //ugly hack to clear old chart on refresh
-  $('#allgaschart').remove();
-  $('#allgaschartcontainer').append('<canvas id="allgaschart" auto-legend></canvas>');
+  $('#allelectricchart').remove();
+  $('#allelectricchartcontainer').append('<canvas id="allelectricchart"></canvas>');
 
-  //draw the total gas usage bar chart
-  var cty = document.getElementById("allgaschart").getContext("2d");
-  cty.canvas.width  = $('#allgaschartcontainer').innerWidth() - 50;
-  var allgaschart = new Chart(cty).Doughnut(datagas, optionsgas);
-});
+   //draw the total gas usage bar chart
+   var cty = document.getElementById("allelectricchart").getContext("2d");
+   cty.canvas.width  = $('#allelectricchartcontainer').innerWidth() - 50;
+   var allelectricchart = new Chart(cty).Doughnut(dataelectric, optionselectric);
+};

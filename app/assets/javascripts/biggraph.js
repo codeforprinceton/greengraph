@@ -1,10 +1,10 @@
 /* Place all the behaviors and hooks related to the matching controller here.
 All this logic will automatically be available in application.js.*/
 
-$(document).ready(function() {
+var biggraph = function(bigchartlabels, bigchartdata) {
 
 var biggraphdata = {
-    labels: [<% @bigchartlabels.each do |x| %> "<%= x.html_safe.to_s %>", <% end %>],
+    labels: bigchartlabels,
     datasets: [
         {
             label: "Energy usage in kWh",
@@ -14,7 +14,7 @@ var biggraphdata = {
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(86, 130, 89, 1)",
-            data: [<% @bigchartdata.each do |x| %> "<%= x.to_s %>", <% end %>]
+            data: bigchartdata
           }
     ]
 };
@@ -73,4 +73,4 @@ var biggraphoptions = {
     cty.canvas.width  = $('#biggraphcontainer').innerWidth() - 50;
     cty.canvas.height = $('#biggraphcontainer').innerHeight() - 50;
     var biggraph = new Chart(cty).Line(biggraphdata, biggraphoptions);
-});
+};

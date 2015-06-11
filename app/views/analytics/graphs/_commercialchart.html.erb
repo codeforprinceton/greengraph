@@ -26,7 +26,8 @@
         </div>
     </div>
 </div>
-<script>
+<script type="text/javascript">
+  //initial AJAX requests to render charts
   $.post( "analytics/range", {year: $("#daterangechart_gascommercial").val(), type: "gas", location: $("#locationrangechart_gascommercial").val(), business_class: 'Commercial'});
   $.post( "analytics/range", {year: $("#daterangechart_electriccommercial").val(), type: "electric", location: $("#locationrangechart_electriccommercial").val(), business_class: 'Commercial'});
 </script>
