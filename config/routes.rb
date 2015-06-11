@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
-
-  get 'dashboard/show'
-
   root 'home#index'
   match 'about', to: 'home#about', via: 'get', as: 'about'
   match 'start', to: 'home#getstarted', via: 'get', as: 'start'
@@ -16,7 +12,7 @@ Rails.application.routes.draw do
   match 'maps', to: 'maps#index', via: 'get', as: 'maps'
   match 'dashboard', to: 'dashboard#index', via: 'get', as: 'dashboard'
   match 'dashboard/:id', to: 'dashboard#show', via: 'get', as: 'dashboard_item'
-  devise_for :users, controllers: { sessions: "users/sessions" }
+  devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations"}
   match 'import', to: 'import#index', via: 'get', as: 'import'
   match 'import/submitfile', to: 'import#submitfile', via: 'post', as: 'submitfile'
 

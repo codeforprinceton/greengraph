@@ -36,7 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   protected
 
   # You can put the params you want to permit in the empty array.
   # def configure_sign_up_params
@@ -49,9 +49,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    flash[:notice] = "Welcome to Greengraph!"
+    dashboard_path
+  end
+   
+  def after_sign_out_path_for(resource)
+    flash[:notice] = "Signed out successfully"
+    root_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
