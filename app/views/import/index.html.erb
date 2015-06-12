@@ -1,32 +1,23 @@
-<style>
-.file {
-    background: #dbf4ad;
-    color: white;
-    border: none;
-    transform: scale(2, 2);
-    border-radius: 3px;
-    transition: 0.4s all;
-}
-.file:hover {
-    background: white;
-    color: black;
-}
-body {
-    background: #dbf4ad;
-}
-</style> 
-<div style="position: absolute; left: 50%; top: 25%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); border-bottom: 3px solid black; color: black; font-size: 500%; ">IMPORT</div>  
+<% @body_id = "importpage" %>
+<div class="row" align="center" style="margin-top: 10%">
+<div class="col-sm-4 col-sm-offset-4">
+<div style="border-bottom: 3px solid #568259; color: #568259; font-size: 500%; ">IMPORT</div>  
+<div class="panel panel-success" style="background-color: #568259">
+<div class="panel-body">
     <%= form_for(:file,
         url: {action: 'submitfile'},
         html: {multipart: true}) do |form| %>
-    <div style="position: absolute; left: 50%; top: 40%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: black; font-size: 150%">
+    <div style="color: #DBF4AD; font-size: 150%">
         Upload your file:
     </div>
-    <div style="position: absolute; left: 50%; top: 52%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: black; font-size: 100%" >
+    <br/><br/>
+    <div style="color: DBF4AD; font-size: 100%" >
         <%= form.file_field("uploaded_file", class: "file") %><br/>
     </div>
-    <br/>
-    <div style="position: absolute; left: 50%; top: 65%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); color: black; font-size: 125%" >
-        <%= submit_tag("Upload file", class: "file") %>
-    </div>
+    <br/><br/>
+    <%= submit_tag("Upload file", class: "file btn btn-lg btn-primary") %>
 <% end %>
+</div>
+</div>
+</div>
+</div>
