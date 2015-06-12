@@ -5,9 +5,8 @@
     height: 40px;
     vertical-align: text-top;
     color: #568259 !important;
-    font-size: 50%;
     text-align: center;
-    width: 200px;
+    width: 100%;
 }
 .email:focus {
     outline: none;
@@ -35,9 +34,7 @@
     height: 40px;
     vertical-align: text-top;
     color: #568259;
-    font-size: 50%;
     text-align: center;
-    width: 130%;
 }
 #signinpage .email:focus {
     outline: none;
@@ -59,16 +56,8 @@
 }
 #signinpage {
   background: #DBF4AD !important;
-  font-family: 'Bree Serif', serif !important;
-}
-#signinpage h2 {
-  font-family: 'Bree Serif', serif;
 }
 
 #signuppage {
   background: #DBF4AD !important;
-  font-family: 'Bree Serif', serif !important;
-}
-#signuppage h2 {
-  font-family: 'Bree Serif', serif;
 }
