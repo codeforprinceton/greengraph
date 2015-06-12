@@ -21,6 +21,7 @@ var biggraphdata = {
 
 
 var biggraphoptions = {
+  skipLabels : 3,
     //Boolean - Whether grid lines are shown across the chart
     scaleShowGridLines : true,
 
@@ -52,7 +53,7 @@ var biggraphoptions = {
     pointDotStrokeWidth : 1,
 
     //Number - amount extra to add to the radius to cater for hit detection outside the drawn point
-    pointHitDetectionRadius : 20,
+    pointHitDetectionRadius : 3,
 
     //Boolean - Whether to show a stroke for datasets
     datasetStroke : true,

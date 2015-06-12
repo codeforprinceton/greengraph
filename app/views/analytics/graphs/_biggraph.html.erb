@@ -6,7 +6,7 @@
     </div>
 </div>
 <script type="text/javascript">
-  var bigchartlabels = [<% @bigchartlabels.each do |x| %> "<%= x.html_safe.to_s %>", <% end %>]
+  var bigchartlabels = [<% @bigchartlabels.each_with_index do |x, y| %> <% if y % 2 == 0%> "<%= x.html_safe.to_s %>", <% else %> "", <% end %><% end %>]
   var bigchartdata = [<% @bigchartdata.each do |x| %> "<%= x.to_s %>", <% end %>]
   //render the big line graph in the canvas tag
   biggraph(bigchartlabels, bigchartdata);
