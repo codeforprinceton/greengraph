@@ -4,4 +4,10 @@ class DashboardController < ApplicationController
 
   def show
   end
+  
+  def history
+  end
+  
+  def add
+  end
 end
