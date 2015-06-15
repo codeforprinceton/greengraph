@@ -13,3 +13,12 @@
     </ul>
   </div>
 </div>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1" style="padding-top: 10px;">
+    <% if current_user.UserSubmitted.count == 0 %>
+      <h2 align="center">It looks like this is the first time your adding your energy report, we recommend following the <a href="#">Guide</a></h2>
+    <% else %>
+      <h2 align="center">Coming soon!</h2>
+    <% end %>
+  </div>
+</div>
