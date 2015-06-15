@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607120402) do
+ActiveRecord::Schema.define(version: 20150615163148) do
 
   create_table "generalenergies", force: :cascade do |t|
     t.datetime "date"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 20150607120402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "user_submitteds", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_submitteds", ["user_id"], name: "index_user_submitteds_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
