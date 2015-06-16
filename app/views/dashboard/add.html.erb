@@ -18,16 +18,37 @@
     <% if current_user.UserSubmitted.count == 0 %>
       <h4 align="center">It looks like this is the first time your adding your energy report, we recommend following the <a href="#">Guide</a></h2>
     <% end %>
-    <%= form_for @submitted, url: dashboard_update_path do |f| %>
-      <%= f.label :gas_reading %>
-      <%= f.number_field :gas_reading %>
-      <%= f.label :gas_charge %>
-      <%= f.number_field :gas_charge, :class => 'text_field', :step => 'any' %>
-      <%= f.label :electric_reading %>
-      <%= f.number_field :electric_reading %>
-      <%= f.label :electric_charge %>
-      <%= f.number_field :electric_charge, :class => 'text_field', :step => 'any' %>
-      <%= f.submit "Save" %>
-    <% end %>
+    <div class="col-sm-6 col-sm-offset-3">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          New monthly bill entry
+        </h3>
+      </div>
+      <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
+        <%= form_for @submitted, url: dashboard_update_path, html: {class: 'form-horizontal'} do |f| %>
+          <div class="form-group">
+            <%= f.label :gas_reading, class: 'control-label' %>
+            <%= f.number_field :gas_reading, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :gas_charge, class: 'control-label' %>
+            <%= f.number_field :gas_charge, :class => 'text_field form-control', :step => 'any' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :electric_reading, class: 'control-label' %>
+            <%= f.number_field :electric_reading, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :electric_charge, class: 'control-label' %>
+            <%= f.number_field :electric_charge, :class => 'text_field form-control', :step => 'any' %>
+          </div>
+          <div align="center">
+            <%= f.submit "Save", class: 'btn btn-large btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+      </div>
+    </div>
   </div>
 </div>
