@@ -2,15 +2,15 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   def index
     @found = current_user.UserSubmitted
-    @gasusage = @found.where("gas_reading IS NOT NULL AND bill_date IS NOT NULL").order(:bill_date).pluck(:gas_reading)
-    @gaslabels = @found.where("gas_reading IS NOT NULL AND bill_date IS NOT NULL").order(:bill_date).pluck(:bill_date)
+    @gasusage = @found.where.not(gas_reading: nil, bill_date: nil).order(:bill_date).pluck(:gas_reading)
+    @gaslabels = @found.where.not(gas_reading: nil, bill_date: nil).order(:bill_date).pluck(:bill_date)
   end
 
   def show
   end
   
   def history
-    @found = current_user.UserSubmitted
+    @found = current_user.UserSubmitted.where.not(bill_date: nil).order(:bill_date)
   end
   
   def add
@@ -20,7 +20,7 @@ class DashboardController < ApplicationController
   def update
     @submitted = UserSubmitted.new(user_submitted_params)
     @submitted[:user_id] = current_user.id
-    unless params[:user_submitted]["bill_date(1i)"].present?
+    unless params[:user_submitted]["bill_date(1i)"].present? and params[:user_submitted]["bill_date(2i)"].present? and params[:user_submitted]["bill_date(3i)"].present?
       flash[:alert] = "Error saving, date required"
       return render :add
     end
