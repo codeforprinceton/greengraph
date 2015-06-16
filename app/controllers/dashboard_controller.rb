@@ -20,6 +20,10 @@ class DashboardController < ApplicationController
   def update
     @submitted = UserSubmitted.new(user_submitted_params)
     @submitted[:user_id] = current_user.id
+    unless params[:user_submitted]["bill_date(1i)"].present?
+      flash[:alert] = "Error saving, date required"
+      return render :add
+    end
     @submitted[:bill_date] = Date.civil(params[:user_submitted]["bill_date(1i)"].to_i,
                          params[:user_submitted]["bill_date(2i)"].to_i,
                          params[:user_submitted]["bill_date(3i)"].to_i)
@@ -28,7 +32,7 @@ class DashboardController < ApplicationController
       return redirect_to dashboard_path
     else
       flash[:alert] = "Error saving"
-      return render :update
+      return render :add
     end
   end
   
