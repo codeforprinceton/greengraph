@@ -1,6 +1,9 @@
 class DashboardController < ApplicationController
   before_action :authenticate_user!
   def index
+    @found = current_user.UserSubmitted
+    @gasusage = @found.where("gas_reading IS NOT NULL").pluck(:gas_reading)
+    @gaslabels = @found.where("gas_reading IS NOT NULL").pluck(:created_at)
   end
 
   def show

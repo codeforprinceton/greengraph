@@ -17,8 +17,18 @@
   <div class="col-sm-10 col-sm-offset-1" style="padding-top: 10px;">
     <% if current_user.UserSubmitted.count == 0 %>
       <h2 align="center">You don't have any energy reports yet, would you like to <%= link_to dashboard_add_path do %>Add One?<% end %></h2>
+    <% elsif current_user.UserSubmitted.count == 1 %>
+      <h2 align="center">Some graphs may not appear correctly until you have at least two months of usage</h2>
     <% else %>
-      <h2 align="center">Personalized graphs coming soon!</h2>
+      <div id="biggraphcontainer" style="height: 350px;">
+        </div>
+      <script type="text/javascript">
+        //set the javascript variables for the biggraph before its rendered
+        var bigchartlabels = [<% @gaslabels.each do |x| %>"<%= x.to_date %>", <% end %>]
+        var bigchartdata = [<% @gasusage.each do |x| %> "<%= x.to_s %>", <% end %>]
+        //render the big line graph in the canvas tag
+        biggraph(bigchartlabels, bigchartdata);
+      </script>
     <% end %>
   </div>
 </div>
