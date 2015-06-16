@@ -1,17 +1,22 @@
-<% @body_id = "importpage" %>
-<div class="row" align="center" style="margin-top: 10%">
+<h1 align="center">Import</h1>
+<hr/>
+<h3 align="center">Data experts only.</h3>
+<br/>
+<div class="row" align="center">
 <div class="col-sm-4 col-sm-offset-4">
-<div style="border-bottom: 3px solid #568259; color: #568259; font-size: 500%; ">IMPORT</div>  
-<div class="panel panel-success" style="background-color: #568259">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="panel-title">Import new raw data exported from PSEG</h4>
+</div>
 <div class="panel-body">
     <%= form_for(:file,
         url: {action: 'submitfile'},
         html: {multipart: true}) do |form| %>
-    <div style="color: #DBF4AD; font-size: 150%">
+    <div>
         Upload your file:
     </div>
     <br/><br/>
-    <div style="color: DBF4AD; font-size: 100%" >
+    <div>
         <%= form.file_field("uploaded_file", class: "file") %><br/>
     </div>
     <br/><br/>
