@@ -28,20 +28,24 @@
       <div class="panel-body" style="padding-left: 30px; padding-right: 30px;">
         <%= form_for @submitted, url: dashboard_update_path, html: {class: 'form-horizontal'} do |f| %>
           <div class="form-group">
+            <%= f.label :bill_date, class: 'control-label' %>
+            <%= f.date_select :bill_date, :include_blank => true %>
+          </div>
+          <div class="form-group">
             <%= f.label :gas_reading, class: 'control-label' %>
-            <%= f.number_field :gas_reading, class: 'form-control' %>
+            <%= f.number_field :gas_reading, class: 'form-control', placeholder: '50' %>
           </div>
           <div class="form-group">
             <%= f.label :gas_charge, class: 'control-label' %>
-            <%= f.number_field :gas_charge, :class => 'text_field form-control', :step => 'any' %>
+            <%= f.number_field :gas_charge, :class => 'text_field form-control', :step => 'any', placeholder: '0.034' %>
           </div>
           <div class="form-group">
             <%= f.label :electric_reading, class: 'control-label' %>
-            <%= f.number_field :electric_reading, class: 'form-control' %>
+            <%= f.number_field :electric_reading, class: 'form-control', placeholder: '200' %>
           </div>
           <div class="form-group">
             <%= f.label :electric_charge, class: 'control-label' %>
-            <%= f.number_field :electric_charge, :class => 'text_field form-control', :step => 'any' %>
+            <%= f.number_field :electric_charge, :class => 'text_field form-control', :step => 'any', placeholder: '0.015' %>
           </div>
           <div align="center">
             <%= f.submit "Save", class: 'btn btn-large btn-primary' %>
