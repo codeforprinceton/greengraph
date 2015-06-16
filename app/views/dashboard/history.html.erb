@@ -15,10 +15,82 @@
 </div>
 <div class="row">
   <div class="col-sm-10 col-sm-offset-1" style="padding-top: 10px;">
-    <% if current_user.UserSubmitted.count == 0 %>
+    <% if @found.count == 0 %>
       <h2 align="center">You don't have any past energy reports yet, would you like to <%= link_to dashboard_add_path do %>Add One?<% end %></h2>
-    <% else %>
-      <h2 align="center">Personalized graphs coming soon!</h2>
     <% end %>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <%= @found.last.created_at.to_date %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <th>Gas Reading</th>
+            <th>Gas Cost</th>
+            <th>Electri Reading</th>
+            <th>Electric Cost</th>
+          </tr>
+          <tr>
+            <td>
+              <%= if @found.last.gas_reading then @found.last.gas_reading else "N/A" end %>
+            </td>
+            <td>
+              <%= if @found.last.gas_charge then @found.last.gas_charge else "N/A" end %>
+            </td>
+            <td>
+              <%= if @found.last.electric_reading then @found.last.electric_reading else "N/A" end %>
+            </td>
+            <td>
+              <%= if @found.last.electric_charge then @found.last.electric_charge else "N/A" end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% @found.reverse.each do |x| %>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading<%=x.id%>">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=x.id%>" aria-expanded="false" aria-controls="collapse<%=x.id%>">
+          <%= x.created_at.to_date %>
+        </a>
+      </h4>
+    </div>
+    <div id="collapse<%=x.id%>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%=x.id%>">
+      <div class="panel-body">
+        <table class="table">
+          <tr>
+            <th>Gas Reading</th>
+            <th>Gas Cost</th>
+            <th>Electri Reading</th>
+            <th>Electric Cost</th>
+          </tr>
+          <tr>
+            <td>
+              <%= if x.gas_reading then x.gas_reading else "N/A" end %>
+            </td>
+            <td>
+              <%= if x.gas_charge then x.gas_charge else "N/A" end %>
+            </td>
+            <td>
+              <%= if x.electric_reading then x.electric_reading else "N/A" end %>
+            </td>
+            <td>
+              <%= if x.electric_charge then x.electric_charge else "N/A" end %>
+            </td>
+          </tr>
+        </table>      
+        </div>
+    </div>
+  </div>
+  <% end %>
+</div>
   </div>
 </div>

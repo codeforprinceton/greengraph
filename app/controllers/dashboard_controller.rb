@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
   end
   
   def history
+    @found = current_user.UserSubmitted
   end
   
   def add
