@@ -2,8 +2,9 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   def index
     @found = current_user.UserSubmitted
-    @gasusage = @found.where.not(gas_reading: nil, bill_date: nil).order(:bill_date).pluck(:gas_reading)
-    @gaslabels = @found.where.not(gas_reading: nil, bill_date: nil).order(:bill_date).pluck(:bill_date)
+    gasfound = @found.where.not(gas_reading: nil, bill_date: nil).order(:bill_date)
+    @gasusage = gasfound.pluck(:gas_reading)
+    @gaslabels = gasfound.pluck(:bill_date)
   end
 
   def show
