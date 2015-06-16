@@ -16,9 +16,18 @@
 <div class="row">
   <div class="col-sm-10 col-sm-offset-1" style="padding-top: 10px;">
     <% if current_user.UserSubmitted.count == 0 %>
-      <h2 align="center">It looks like this is the first time your adding your energy report, we recommend following the <a href="#">Guide</a></h2>
-    <% else %>
-      <h2 align="center">Coming soon!</h2>
+      <h4 align="center">It looks like this is the first time your adding your energy report, we recommend following the <a href="#">Guide</a></h2>
+    <% end %>
+    <%= form_for @submitted, url: dashboard_update_path do |f| %>
+      <%= f.label :gas_reading %>
+      <%= f.number_field :gas_reading %>
+      <%= f.label :gas_charge %>
+      <%= f.number_field :gas_charge, :class => 'text_field', :step => 'any' %>
+      <%= f.label :electric_reading %>
+      <%= f.number_field :electric_reading %>
+      <%= f.label :electric_charge %>
+      <%= f.number_field :electric_charge, :class => 'text_field', :step => 'any' %>
+      <%= f.submit "Save" %>
     <% end %>
   </div>
 </div>

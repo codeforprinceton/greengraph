@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615163148) do
+ActiveRecord::Schema.define(version: 20150616153907) do
 
   create_table "generalenergies", force: :cascade do |t|
     t.datetime "date"
@@ -41,8 +41,12 @@ ActiveRecord::Schema.define(version: 20150615163148) do
 
   create_table "user_submitteds", force: :cascade do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "gas_reading"
+    t.integer  "electric_reading"
+    t.float    "electric_charge"
+    t.float    "gas_charge"
   end
 
   add_index "user_submitteds", ["user_id"], name: "index_user_submitteds_on_user_id"
