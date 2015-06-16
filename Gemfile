@@ -25,6 +25,8 @@ gem 'highcharts-rails'
 gem 'devise'
 #for better error tracking in production
 gem 'newrelic_rpm'
+#for importing pdf files and reading them properly
+gem 'pdf-reader'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
