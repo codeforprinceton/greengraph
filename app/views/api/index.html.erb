@@ -1,4 +1,11 @@
 <h1 align="center">Greengraph API Access</h1>
-<h3 align="center"><%= link_to "raw data", raw_api_path %></h3>
-<h3 align="center"><%= link_to "raw temperature data", raw_api_temp_path %></h3>
-<h3 align="center"><%= link_to "geojson map of Princeton", raw_api_geojson_path %></h3>
+<hr/>
+<h3 align="center">For developers only.</h3>
+<br/>
+<div class="col-sm-8 col-sm-offset-2">
+  <div class="list-group">
+    <%= link_to "raw data", raw_api_path, class: 'list-group-item' %>
+    <%= link_to "raw temperature data", raw_api_temp_path, class: 'list-group-item' %>
+    <%= link_to "geojson map of Princeton", raw_api_geojson_path, class: 'list-group-item' %>
+  </div>
+</div>

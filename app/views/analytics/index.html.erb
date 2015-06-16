@@ -1,7 +1,10 @@
 <h1 align="center">Recent energy data for Princeton</h1>
-<h3 align="center">Below you'll find some data relating to the energy usage in Princeton over the last few years.</h3>
-<h3 align="center">Ready to add your own data? <a href="users/sign_up">Register</a> and contribute.</h3>
-<br>
+<hr/>
+<% unless user_signed_in? %>
+  <h3 align="center">Below you'll find some data relating to the energy usage in Princeton over the last few years.</h3>
+  <h3 align="center">Ready to add your own data? <a href="users/sign_up">Register</a> and contribute.</h3>
+  <br/>
+<% end %>
 <%= render partial: 'analytics/graphs/biggraph' %>
 <%= render partial: 'analytics/graphs/commercialchart' %>
 <%= render partial: 'analytics/graphs/residentialchart' %>
