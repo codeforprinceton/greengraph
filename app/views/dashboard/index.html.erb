@@ -15,8 +15,8 @@
 </div>
 <div class="row">
   <div class="col-sm-10 col-sm-offset-1" style="padding-top: 10px;">
-    <% if current_user.UserSubmitted.count == 0 %>
-      <h2 align="center">You don't have any energy reports yet, would you like to <%= link_to dashboard_add_path do %>Add One?<% end %></h2>
+    <% if current_user.UserSubmitted.count == 0 or @gasfound.count == 0 %>
+      <h2 align="center">You don't have any usable energy reports yet, would you like to <%= link_to dashboard_add_path do %>Add One?<% end %></h2>
     <% elsif current_user.UserSubmitted.count == 1 %>
       <h2 align="center">Some graphs may not appear correctly until you have at least two months of usage</h2>
     <% else %>

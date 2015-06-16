@@ -23,7 +23,7 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <%= @found.last.bill_date.to_date %>
+          <%= @found.last.bill_date.to_date %><%= link_to "Remove", dashboard_delete_path(@found.last.id), class: 'pull-right', data: { confirm: "You sure?" }, style: "color: red",method: :delete %>
         </a>
       </h4>
     </div>
@@ -59,7 +59,7 @@
     <div class="panel-heading" role="tab" id="heading<%=x.id%>">
       <h4 class="panel-title">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=x.id%>" aria-expanded="false" aria-controls="collapse<%=x.id%>">
-          <%= x.bill_date.to_date %>
+          <%= x.bill_date.to_date %><%= link_to "Remove", dashboard_delete_path(x.id), class: 'pull-right', data: { confirm: "You sure?" }, style: "color: red", method: :delete %>
         </a>
       </h4>
     </div>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   match 'dashboard/history', to: 'dashboard#history', via: 'get', as: 'dashboard_history'
   match 'dashboard/add', to: 'dashboard#add', via: 'get', as: 'dashboard_add'
   match 'dashboard/update', to: 'dashboard#update', via: 'post', as: 'dashboard_update'
+  match 'dashboard/:id/delete', to: 'dashboard#delete', via: 'delete', as: 'dashboard_delete'
   match 'dashboard/:id', to: 'dashboard#show', via: 'get', as: 'dashboard_item'
   devise_for :users, controllers: { sessions: "users/sessions", registrations: "users/registrations"}
   match 'import', to: 'import#index', via: 'get', as: 'import'

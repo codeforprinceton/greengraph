@@ -2,9 +2,9 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
   def index
     @found = current_user.UserSubmitted
-    gasfound = @found.where.not(gas_reading: nil, bill_date: nil).order(:bill_date)
-    @gasusage = gasfound.pluck(:gas_reading)
-    @gaslabels = gasfound.pluck(:bill_date)
+    @gasfound = @found.where.not(gas_reading: nil, bill_date: nil).order(:bill_date)
+    @gasusage = @gasfound.pluck(:gas_reading)
+    @gaslabels = @gasfound.pluck(:bill_date)
   end
 
   def show
@@ -35,6 +35,19 @@ class DashboardController < ApplicationController
       flash[:alert] = "Error saving"
       return render :add
     end
+  end
+  
+  def delete
+    entry = UserSubmitted.find(params[:id])
+    if entry.user_id == current_user.id
+      entry.destroy
+      flash[:notice] = "Successfully deleted entry"
+      return redirect_to dashboard_history_path
+    else
+      flash[:alert] = "Delete not authorized"
+      return redirect_to root_path
+    end
+
   end
   
   private

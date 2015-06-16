@@ -18,7 +18,24 @@
     <% if current_user.UserSubmitted.count == 0 %>
       <h4 align="center">It looks like this is the first time your adding your energy report, we recommend following the <a href="#">Guide</a></h2>
     <% end %>
-    <div class="col-sm-6 col-sm-offset-3">
+    <h3 align="center" style="text-decoration: underline;">How do I add a new months reading?</h3>
+    <h4 align="center">
+      First locate your most recent energy bill statement, it should have been either mailed or emailed to you by your energy provider. It should appear similar to the example statement on the left hand side. Match your statements electricity/gas usage to the example statement and then enter your statements information into the required fields on the right hand side before clicking "save"
+    </h4>
+    <hr/>
+    <div class="col-sm-6">
+      <div class="panel panel-default">
+        <div class="panel-heading"
+          <h3 align="center">
+            Example PSE&G bill readings (page 3)
+          </h3>
+        </div>
+        <div class="panel-body">
+          <%= image_tag "examplebill.png", width: "100%", height: "100%" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
     <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">
@@ -29,23 +46,23 @@
         <%= form_for @submitted, url: dashboard_update_path, html: {class: 'form-horizontal'} do |f| %>
           <div class="form-group">
             <%= f.label :bill_date, class: 'control-label' %>
-            <%= f.date_select :bill_date, :include_blank => true %>
+            <%= f.date_select :bill_date, {:order => [:month, :day, :year], :prompt => [:year => "Year", :month => "Month", :day => "Day"], :start_year => 1985, :end_year => 2015}, {:required => "true"}  %>
           </div>
           <div class="form-group">
-            <%= f.label :gas_reading, class: 'control-label' %>
-            <%= f.number_field :gas_reading, class: 'form-control', placeholder: '50' %>
+            1. <%= f.label :gas_reading, "Gas Usage", class: 'control-label' %>
+            <%= f.number_field :gas_reading, class: 'form-control', :step => 'any', placeholder: '25.405' %>
           </div>
           <div class="form-group">
-            <%= f.label :gas_charge, class: 'control-label' %>
-            <%= f.number_field :gas_charge, :class => 'text_field form-control', :step => 'any', placeholder: '0.034' %>
+            2. <%= f.label :gas_charge, "Gas Cost", class: 'control-label' %>
+            <%= f.number_field :gas_charge, :class => 'text_field form-control', :step => 'any', placeholder: '0.451879' %>
           </div>
           <div class="form-group">
-            <%= f.label :electric_reading, class: 'control-label' %>
-            <%= f.number_field :electric_reading, class: 'form-control', placeholder: '200' %>
+            3. <%= f.label :electric_reading, "Electricity Usage", class: 'control-label' %>
+            <%= f.number_field :electric_reading, class: 'form-control', placeholder: '343' %>
           </div>
           <div class="form-group">
-            <%= f.label :electric_charge, class: 'control-label' %>
-            <%= f.number_field :electric_charge, :class => 'text_field form-control', :step => 'any', placeholder: '0.015' %>
+            4. <%= f.label :electric_charge, "Electricity Cost", class: 'control-label' %>
+            <%= f.number_field :electric_charge, :class => 'text_field form-control', :step => 'any', placeholder: '0.112682' %>
           </div>
           <div align="center">
             <%= f.submit "Save", class: 'btn btn-large btn-primary' %>
