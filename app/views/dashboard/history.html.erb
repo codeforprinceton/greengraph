@@ -54,7 +54,7 @@
       </div>
     </div>
   </div>
-  <% @found.reverse.each do |x| %>
+  <% @found.reverse[1..-1].each do |x| %>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading<%=x.id%>">
       <h4 class="panel-title">
