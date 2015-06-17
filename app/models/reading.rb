@@ -3,14 +3,16 @@ class Reading < ActiveRecord::Base
         if type == "gas"
             if location == "All"
                 finalresult = []
-                firstresult = self.where('business_class = ? and gas_billed IS NOT NULL', sector)
+                firstresult = self.where('business_class = ? and gas_billed IS NOT NULL', sector).order(:read_date)
                 firstresult.each do |x|
-                    if finalresult.present? and finalresult.include?(x.read_date)
-                        finalresult.last.gas_billed += x.gas_billed
-                    else
+                    if !finalresult.empty? and finalresult.last.read_date.strftime("%m, %Y") == x.read_date.strftime("%m, %Y")
+                       finalresult.last.gas_billed += x.gas_billed
+                   else
                         finalresult += [x]
                     end
                 end
+                puts finalresult.first.read_date.to_s + " " + finalresult.first.gas_billed.to_s
+                puts finalresult.second.read_date.to_s + " " + finalresult.second.gas_billed.to_s
                 result = finalresult
             else
                 result = self.where('business_class = ? and gas_billed IS NOT NULL and city_code = ?', sector, location.upcase)
@@ -18,15 +20,15 @@ class Reading < ActiveRecord::Base
         elsif type == "electric"
             if location == "All"
                 finalresult = []
-                firstresult = self.where('business_class = ? and electric_billed IS NOT NULL', sector)
+                firstresult = self.where('business_class = ? and gas_billed IS NOT NULL', sector)
                 firstresult.each do |x|
-                    if finalresult.present? and finalresult.include?(x.read_date)
-                        finalresult.last.electric_billed += x.electric_billed
-                    else
+                    if !finalresult.empty? and finalresult.last.read_date.strftime("%m, %Y") == x.read_date.strftime("%m, %Y")
+                       finalresult.last.electric_billed += x.electric_billed
+                   else
                         finalresult += [x]
                     end
                 end
-                result = finalresult
+                result = self.where(id: finalresult.map(&:id))
             else
                 result = self.where('business_class = ? and electric_billed IS NOT NULL and city_code = ?', sector, location.upcase)
             end
