@@ -21,11 +21,11 @@ class EnergyViews(object):
         '''
         Initialize
         - read in energy data (locally cached or from API url)
-        - note baseload tempratures (i.e. when energy is not used for heating or cooling)
+        - note baseload temperatures (i.e. when energy is not used for heating or cooling)
         - tabulate usage data into separate gas and power datasets
 
         :param url: URL to raw data API
-        :param basetemps: baseload tempratures (gas, power)
+        :param basetemps: baseload temperatures (gas, power)
         '''
         assert(source in ('API', 'CSV', 'cache'))
 
@@ -67,7 +67,7 @@ class EnergyViews(object):
                 lambda x: float(re.sub(exp, '', x)) if ps.notnull(x) and x else np.NaN)
 
         #
-        # tabulate data and run regressions over heating and cooling/cooking tempratures
+        # tabulate data and run regressions over heating and cooling/cooking temperatures
         #
         self.crosstab_ener(basetemps)
         self.unstack_temp()
@@ -120,7 +120,7 @@ class EnergyViews(object):
     def unstack_temp(self):
         '''
         Read in heating/cooling degree day data and average monthly
-        temprature for each month reindex to retain only months for
+        temperature for each month reindex to retain only months for
         which energy use data exists
         '''
         path = '{0}/../data/DegreeDays.csv'.format(PATH)
@@ -129,7 +129,7 @@ class EnergyViews(object):
         self.degd = self.degd.set_index('date')
         self.degd.index.tz = self.tz
 
-        path = '{0}/../data/Temprature.csv'.format(PATH)
+        path = '{0}/../data/Temperature.csv'.format(PATH)
         temp = ps.DataFrame.from_csv(path)
         rows = []
         for ix, row in temp.iterrows():

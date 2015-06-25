@@ -13,9 +13,9 @@ BASEDATE = datetime(1700, 1, 1)
 
 def line(x, m, c):
     '''
-    Equation of a line, for showing regressions to temprature
+    Equation of a line, for showing regressions to temperature
 
-    :param x: temprature value
+    :param x: temperature value
     :param m: slope of regression line
     :param c: intercept
     :return: estmated energy usage
@@ -47,7 +47,7 @@ class EnergyTimeSeries(object):
 
         :param usage: usage data time series
         :param users: number of meters
-        :param basetemp: baseload temprature
+        :param basetemp: baseload temperature
         :param scale: units divisor for usage values
         '''
         self.usage = usage / scale
@@ -108,19 +108,19 @@ class EnergyTimeSeries(object):
 
     def plots(self, temp, city_code, business_class, per_meter):
         '''
-        Regress measured usage to tempratures in cold and hot months and
+        Regress measured usage to temperatures in cold and hot months and
         generate x- and y-vectors for plotting this data set
 
-        :param temp: temprature time series to regress to
+        :param temp: temperature time series to regress to
         :param city_code: 'PRINCETON TWP' or 'PRINCETON BORO'
         :param business_class: a single business_class or a collection thereof
             - if a collection is given, the values are summed up
         :param per_meter: True for consumption per meter, False for aggregate
-        :return: frame containing scatterplot and regression lines to temprature
+        :return: frame containing scatterplot and regression lines to temperature
         '''
         data = self.select(city_code, business_class, per_meter)
         #
-        # split monthly average temprature series into two:
+        # split monthly average temperature series into two:
         # cool => samples when temps are cool basetemp
         # warm => samples when temps are warm basetemp
         # use the full time period over which any usage data exists
