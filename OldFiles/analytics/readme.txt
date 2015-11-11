@@ -30,13 +30,13 @@ Usage:
               or  zip(data.index.values, data.values)
         b) ln_cool: (cool, line)
         c) ln_warm: (warm, line)
-           x and y points on a straight line corresponding to tempratures during cool
+           x and y points on a straight line corresponding to temperatures during cool
            months (=heating data) or warm months (=cooling data for power, baseload for
            gas). Convert to a vector pair or point sequence as:
                   (cool.values, line.values)
               or  zip(cool.values, line.values)
         d) scatter: (temp, data)
-           x and y points for a scatter plot of consumption vs temprature. Convert to a
+           x and y points for a scatter plot of consumption vs temperature. Convert to a
            vector pair or point sequence as:
                   (temp.values, data.values)
               or  zip(temp.values, data.values)
@@ -51,7 +51,7 @@ Changelog:
 + plots of seasonally adjusted data
 + "you are here" plots
 + short writeup
-+ UK DoE paper on temprature correction
++ UK DoE paper on temperature correction
 
 To do:
 - smooth the spikes from estimated billing

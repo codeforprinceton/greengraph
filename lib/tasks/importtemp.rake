@@ -5,7 +5,7 @@ namespace :csv do
   desc "Import Temperature CSV Data"
   task :importtemp => :environment do
     progressbar = ProgressBar.create(:title => 'Temperature CSV file import', :total => 408)
-    csv_file_path = 'db/seeds/Temprature.csv'
+    csv_file_path = 'db/seeds/Temperature.csv'
     puts "Starting data import -- please wait"
     CSV.foreach(csv_file_path) do |row|
         (1..12).each do |x|

@@ -19,7 +19,7 @@ def draw_dd(views):
     plt.subplots_adjust(left=0.05, right=0.95, top=0.85, bottom=0.15, hspace=0.50)
     fig.suptitle('Heating / Cooling Degree Days', fontsize=14)
     #
-    # scatterplots & regression vs temprature
+    # scatterplots & regression vs temperature
     #
     vs_temp['hdd regression'].plot(ax=ax0, c='r', alpha=0.75)
     vs_temp['cdd regression'].plot(ax=ax0, c='b', alpha=0.75)
@@ -352,11 +352,11 @@ if __name__ == '__main__':
     COLOR_BORO = '#FF4000'
     views = EnergyViews('http://slacker87.koding.io:3000/api/raw', source='CSV')
     #
-    # degree days & temprature
+    # degree days & temperature
     #
     draw_dd(views)
     #
-    # consumption vs time and temprature
+    # consumption vs time and temperature
     #
     # draw_quad(
     #     views, 'gas', 'Gas', 'Therms',
