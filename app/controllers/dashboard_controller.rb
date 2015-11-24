@@ -53,6 +53,6 @@ class DashboardController < ApplicationController
   private
   
   def user_submitted_params
-    params.require(:user_submitted).permit(:user_id, :bill_date, :electric_reading, :electric_charge, :gas_reading, :gas_charge)
+    params.require(:user_submitted).permit(:user_id, :bill_date, :electric_reading, :electric_charge, :gas_reading, :gas_charge, :city, :state, :zip)
   end
 end

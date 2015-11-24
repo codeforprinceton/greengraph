@@ -49,6 +49,14 @@
             <%= f.date_select :bill_date, {:order => [:month, :day, :year], :prompt => [:year => "Year", :month => "Month", :day => "Day"], :start_year => 1985, :end_year => 2015}, {:required => "true"}  %>
           </div>
           <div class="form-group">
+            <%= f.label :city, "City", class: 'control-label' %>
+            <%= f.text_field :city, class: 'form-control', placeholder: 'Princeton' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :zip, "Zip Code", class: 'control-label' %>
+            <%= f.text_field :zip, class: 'form-control', placeholder: '08540' %>
+          </div>
+          <div class="form-group">
             1. <%= f.label :gas_reading, "Gas Usage", class: 'control-label' %>
             <%= f.number_field :gas_reading, class: 'form-control', :step => 'any', placeholder: '25.405' %>
           </div>
