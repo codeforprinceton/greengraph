@@ -1,0 +1,135 @@
+---
+title: "Princeton CO2 Emission Analysis"
+author: "Jack Kang"
+date: "11/11/2015"
+output:
+  html_document:
+    toc: true
+
+---
+```{r setup,echo=F}
+library(knitr)
+library(rgl)
+knit_hooks$set(webgl = hook_webgl)
+raw <- read.table("C:/Users/King/Desktop/codeForPrinceton/CA9C2000_Raw_data.csv", header=TRUE, 
+                  sep=",")
+```
+*****************
+### Summary
+
+The purpose of this analysis was to build a mathematical model for total CO2 emission through electricity/gas consumption in Princeton Township and Boro. 
+
+Multiple linear regression method with stepwise model selection by AIC criterion were used, significant variables were recorded and final model was presented. 3D graphic demonstration of the final statistical model was illustrated. Weather normalized (by Temperature, Daylight length) data were generated in order to uncover other factors that affact electricity/gas consumption, or equivalently, CO2 emission.
+
+What is still missing right now is data regarding other factors, for example, electricity price, gas price, etc. Also, if prediction data on temperature is available, this model can be used to predict CO2 emissions in the near future.
+
+************************
+
+### Basic statistics
+
+Three key variables and their preliminary statistics are displayed as follows, the time span of the data was from April, 2009 - Jun, 2015.
+  
+  
+KCO2 : Total CO2 (in thousand tons)
+```{r,echo=F,comment=NA}
+summary(raw$KCO2)
+```
+Temp : Temperature ($F^{\circ}$)
+```{r,echo=F,comment=NA}
+summary(raw$Temp)
+```
+Daylength : Daylight length (Hours)
+```{r,echo=F,comment=NA}
+summary(raw$Daylength)
+```
+
+
+
+***********************************
+
+###Multiple regression modeling
+
+Multiple regress model were used with stepwise selection by AIC criterion. The variables entered were: $$Temp \qquad Temp^2 \qquad Daylength^2 \qquad Daylength^3$$
+The final model produced was:
+$$KCO2=53.68-1.73\times Temp+0.01\times Temp^2+0.70\times Daylength^2 -0.03\times Daylength^3$$
+  
+   
+   
+Model Graphics were created to illustrate the relationship between CO2 emission and weather changes, which in this case, means Temperature and Daylight length changes. The dots were data points and the 3d surface was the regression model. Note there was an outlier at the bottom of the chart possibly due to a delay in billing cycle.
+
+
+
+```{r testgl, webgl=TRUE,echo=F}
+raw$Temp2=raw$Temp*raw$Temp
+raw$Temp3=raw$Temp*raw$Temp*raw$Temp
+raw$Daylength2=raw$Daylength*raw$Daylength
+raw$Daylength3=raw$Daylength*raw$Daylength*raw$Daylength
+mod2 <- lm(raw$KCO2~raw$Temp+raw$Temp2+raw$Daylength2+raw$Daylength3)
+
+x1=seq(range(raw$Temp)[1],range(raw$Temp)[2],len=75)
+x2=seq(range(raw$Daylength)[1],range(raw$Daylength)[2],len=75)
+j=length(x1)
+z=matrix(nrow=j,ncol=j)
+for(i in 1:j){
+  for(k in 1:j) {
+    z[i,k]=53.677522-1.7334*x1[i]+0.012853*x1[i]^2+0.701285*x2[k]^2-0.035324*x2[k]^3
+  }
+}
+co2lim <- range(raw$KCO2)
+co2len <- co2lim[2]-co2lim[1]+1
+zlim <- range(z)+2
+zlen <- zlim[2]-zlim[1]+1
+#heatcolo <-  heat.colors(co2len)
+colorlut1 <-  rainbow(co2len,start=0,end=4/6)
+colorlut2 <-  rainbow(co2len,s=0.6,start=0,end=4/6)
+colo <- colorlut1[co2lim[2]-raw$KCO2]
+surfcolor <- colorlut2[zlim[2]-z]
+
+plot3d(raw$Temp,raw$Daylength,raw$KCO2,xlab="Temperature",ylab="Day Length",zlab="CO2 Produced",col=colo,size=4,main="Princeton CO2 emission")
+surface3d(x1,x2,z,col=surfcolor)
+
+
+```
+  
+     
+        
+                
+        
+*********************
+  
+
+###Conclusion
+
+The CO2 emission through electricity/gas consumption in Princeton decreases as temperature rises and reaches its lowest around 65F, it also increases in longer days but reaches its highest around 13 hr/day. The data points shows a clear decrease pattern from top-left corner of the cube to the bottom-right corner, which was resulted from the high correlation between Temperature and Daylight length.
+
+
+
+***************
+
+###Normalized dataset
+
+```{r echo=F,comment=NA}
+raw$Norm.CO2=fitted(mod2)
+raw$Res.CO2=residuals(mod2)
+myvars <- c("Month","Temp","Daylength","KCO2","Norm.CO2","Res.CO2")
+newdata <- raw[myvars]
+newdata[1:2,]
+
+
+par(tcl= -0.2)
+labels=seq(04/2009,06/2015)
+plot(fitted(mod2),type="l",xlab="Month",ylab="Normalized CO2 Emission",col="red",lwd=2)
+lines(raw$KCO2,type="l",xlab="Month",ylab="Normalized CO2 Emission",col="green",lwd=2)
+
+```
+
+
+
+*************
+
+###reference
+Link to a second page: * [second page] 
+https://github.com/jackking11111111/First-test-manual/blob/gh-pages/Stat_manual.html
+
+
+
