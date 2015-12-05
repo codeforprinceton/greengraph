@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   match 'api/raw', to: 'api#raw', via: 'get', as: 'raw_api'
   match 'api/rawtemp', to: 'api#rawtemp', via: 'get', as: 'raw_api_temp'
   match 'api/geojson', to: 'api#geojson', via: 'get', as: 'raw_api_geojson'
+  match 'api/models', to: 'api#models', via: 'get', as: 'raw_api_models'
   match 'maps', to: 'maps#index', via: 'get', as: 'maps'
   match 'dashboard', to: 'dashboard#index', via: 'get', as: 'dashboard'
   match 'dashboard/history', to: 'dashboard#history', via: 'get', as: 'dashboard_history'
