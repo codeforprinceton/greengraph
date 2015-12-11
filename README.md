@@ -1,3 +1,5 @@
+[![Greengraph gitten](http://gittens.r15.railsrumble.com//badge/codeforprinceton/greengraph)](http://gittens.r15.railsrumble.com//badge/codeforprinceton/greengraph)
+
 # Princeton Energy
 
 Welcome to the Princeton Energy Repository
