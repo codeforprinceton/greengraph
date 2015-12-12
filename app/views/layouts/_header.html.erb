@@ -18,6 +18,7 @@
             <li><%= link_to "Analytics", analytics_path %></li>
             <li><%= link_to "Maps", maps_path %></li>
             <li><%= link_to "API", api_path %></li>
+            <li><%= link_to "Datasheets", datasheets_path %></li>
             <% if user_signed_in? and current_user.admin == true %><li><%= link_to "Import", import_path %></li><% end %>
             <li>
             <% if user_signed_in? %>
