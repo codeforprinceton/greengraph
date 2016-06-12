@@ -11,12 +11,12 @@ var gasdoughnut = function(comgas, resgas) {
         {
             data: [comgas, resgas],
             backgroundColor: [
-                "#CE8147",
-                "#561D25"
+                "rgba(255,99,132,0.7)",
+                "rgba(155,99,132,0.7)"
             ],
             hoverBackgroundColor: [
-                "#f59a55",
-                "#762833"
+                "rgba(255,99,132,0.9)",
+                "rgba(155,99,132,0.9)"
             ]
         }]
 };
