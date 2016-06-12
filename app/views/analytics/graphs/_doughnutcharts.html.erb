@@ -1,11 +1,15 @@
 <div class="row">
-    <div class="col-sm-5 col-sm-offset-1">
-        <h4 align="center">All gas usage combined since 2009</h4>
-        <div id="allgaschartcontainer">
-            <canvas style="height: 300px;" id="allgaschart"></canvas>
+    <div class="col-sm-6 col-sm-offset-3">
+        <h4 align="center">Since 2009, Princeton has consumed <%=@commercialgas %> Therm (THM) of gas for its commercial sector and <%=@residentialgas %> Therm (THM) for residents.</h4>
+        <div id="allgaschartbarcontainer">
+            <canvas style="height: 300px;" id="allgaschartbar"></canvas>
         </div>
+        <h4 align="center">To help put this in perspective, wikipedia describes a Therm as <a style="color: #336633;" href="https://en.wikipedia.org/wiki/Therm"><i>energy equivalent of burning 100 cubic feet of natural gas.</i></a>
     </div>
-    <div class="col-sm-5">
+</div>
+<br/><br/>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
         <h4 align="center">All electric usage combined since 2009</h4>
         <div id="allelectricchartcontainer">
             <canvas style="height: 300px;" id="allelectricchart"></canvas>
@@ -18,5 +22,5 @@
   electricdoughnut(comelectric, reselectric);
   var comgas = <%=@commercialgas %>;
   var resgas = <%=@residentialgas %>;
-  gasdoughnut(comgas, resgas);
+  gasbar(comgas, resgas);
 </script>

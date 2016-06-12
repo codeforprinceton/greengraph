@@ -2,21 +2,25 @@
 All this logic will automatically be available in application.js.*/
 
 var gasdoughnut = function(comgas, resgas) {
+  var datagas = {
+    labels: [
+        "Commercial",
+        "Residential"
+    ],
+    datasets: [
+        {
+            data: [comgas, resgas],
+            backgroundColor: [
+                "#CE8147",
+                "#561D25"
+            ],
+            hoverBackgroundColor: [
+                "#f59a55",
+                "#762833"
+            ]
+        }]
+};
 
-  var datagas = [
-      {
-          label: "Commercial",
-          value: comgas,
-          color:"#CE8147",
-          highlight: "#f59a55",
-      },
-      {
-          label: "Residential",
-          value: resgas,
-          color: "#561D25",
-          highlight: "#762833",
-      },
-  ]
 
   var optionsgas = {
       //Boolean - Whether we should show a stroke on each segment
@@ -42,11 +46,6 @@ var gasdoughnut = function(comgas, resgas) {
 
       //Boolean - Whether we animate scaling the Doughnut from the centre
       animateScale : false,
-
-      legendTemplate : '<ul class=gas-legend>'
-                        +  '<li><span style=\"background-color:#F7464A\"></span>Commercial</li>'
-                        +  '<li><span style=\"background-color:#46BFBD\"></span>Residential</li>'
-                        + '</ul>'
   };
 
   //ugly hack to clear old chart on refresh
@@ -56,5 +55,9 @@ var gasdoughnut = function(comgas, resgas) {
   //draw the total gas usage bar chart
   var cty = document.getElementById("allgaschart").getContext("2d");
   cty.canvas.width  = $('#allgaschartcontainer').innerWidth() - 50;
-  var allgaschart = new Chart(cty).Doughnut(datagas, optionsgas);
+  var allgaschart = new Chart(cty,{
+        type: 'pie',
+        data: datagas,
+        options: optionsgas
+    });
 };

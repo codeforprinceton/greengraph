@@ -20,7 +20,7 @@
         <h2 style="color: #FFF">Ready to help make a change?</h2>
         <br/>
         <div align="center">
-        <%= link_to start_path, class: 'button button--pipaluk button--inverted button--round-l button--text-thick button--text-upper' do %></i>  Get Started<% end %></div>
+            <a href="#start" class='button button--pipaluk button--inverted button--round-l button--text-thick button--text-upper'>Lets Get Started!</a></div>
         </div>
       </div>
     </div>
@@ -31,3 +31,10 @@
   // start the pretty bubbles on the homepage
   bubbles();
 </script>
+<br/><br/><br/>
+<h1 align="center" id="start">Let's make Princeton green, together!</h1>
+<br>
+<%= render partial: 'analytics/graphs/doughnutcharts' %>
+<div class="biggraph-margin">
+    <%= render partial: 'analytics/graphs/biggraph' %>
+</div>

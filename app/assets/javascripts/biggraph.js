@@ -73,5 +73,9 @@ var biggraphoptions = {
     var cty = document.getElementById("biggraph").getContext("2d");
     cty.canvas.width  = $('#biggraphcontainer').innerWidth() - 50;
     cty.canvas.height = $('#biggraphcontainer').innerHeight() - 50;
-    var biggraph = new Chart(cty).Line(biggraphdata, biggraphoptions);
+    var biggraph = new Chart(cty, {
+        type: 'line',
+        data: biggraphdata,
+        options: biggraphoptions
+    });
 };
