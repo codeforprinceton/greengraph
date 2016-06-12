@@ -6,7 +6,7 @@ All this logic will automatically be available in application.js.*/
 var gasbar = function(comgas, resgas) {
 
 var datagasbar = {
-    labels: ["Gas in THM"],
+    labels: ["Gas per 10,000 THM"],
     datasets: [
         {
             label: "Commercial",
@@ -54,7 +54,7 @@ All this logic will automatically be available in application.js.*/
 var electricbar = function(comelectric, reselectric) {
 
 var dataelectricbar = {
-    labels: ["Electricity in KWH"],
+    labels: ["Electricity per 100,000 KWH"],
     datasets: [
         {
             label: "Commercial",

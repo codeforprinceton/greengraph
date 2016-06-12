@@ -7,7 +7,7 @@ var biggraphdata = {
     labels: bigchartlabels,
     datasets: [
         {
-            label: "Energy usage in kWh",
+            label: "Energy usage in 100,000 kWh",
             fill: true,
             lineTension: 0.1,
             backgroundColor: "rgba(48, 130, 89,0.4)",

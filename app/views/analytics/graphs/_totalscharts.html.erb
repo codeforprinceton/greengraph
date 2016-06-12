@@ -1,5 +1,5 @@
 <div class="row">
-    <h4 align="center">Since 2009, Princeton has consumed <b><%=@commercialgas %><b> Therm (THM) of gas for its commercial sector and <b><%=@residentialgas %></b> Therm (THM) for residents.</h4>
+    <h4 align="center">Since 2009, Princeton has consumed <b><%= number_with_delimiter(@commercialgas.floor, :delimiter => ',') %><b> Therm (THM) of gas for its commercial sector and <b><%= number_with_delimiter(@residentialgas.floor, :delimiter => ',') %></b> Therm (THM) for residents.</h4>
     <div class="col-sm-6 col-sm-offset-1">
         <div id="allgaschartbarcontainer">
             <canvas style="height: 300px;" id="allgaschartbar"></canvas>
@@ -14,7 +14,7 @@
 <h4 align="center">To help put this in perspective, wikipedia describes a Therm as <a style="color: #336633;" href="https://en.wikipedia.org/wiki/Therm"><i>energy equivalent of burning 100 cubic feet of natural gas.</i></a>
 <br/><br/><br/><br/><br/>
 <div class="row">
-    <h4 align="center">Princeton also used <b><%=@commercialelectric%></b> KWH of electricity in commercial applications and <b><%=@residentialelectric%></b> KWH for residential use in homes just like yours!</h4>
+    <h4 align="center">Princeton also used <b><%= number_with_delimiter(@commercialelectric.floor, :delimiter => ',') %></b> KWH of electricity in commercial applications and <b><%= number_with_delimiter(@residentialelectric.floor, :delimiter => ',') %></b> KWH for residential use in homes just like yours!</h4>
     <div class="col-sm-6 col-sm-offset-1">
         <div id="allelectricbarchartcontainer">
             <canvas style="height: 300px;" id="allelectricbarchart"></canvas>
@@ -27,12 +27,12 @@
     </div>
 </div>
 <script type="text/javascript">
-  var comelectric = <%=@commercialelectric %>;
-  var reselectric = <%=@residentialelectric %>;
+  var comelectric = <%=@commercialelectric.floor/100000 %>;
+  var reselectric = <%=@residentialelectric.floor/100000 %>;
   electricdoughnut(comelectric, reselectric);
   electricbar(comelectric, reselectric);
-  var comgas = <%=@commercialgas %>;
-  var resgas = <%=@residentialgas %>;
+  var comgas = <%=@commercialgas.floor/10000 %>;
+  var resgas = <%=@residentialgas.floor/10000 %>;
   gasbar(comgas, resgas);
   gasdoughnut(comgas, resgas);
 </script>
