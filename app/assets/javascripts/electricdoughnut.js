@@ -11,12 +11,12 @@ var electricdoughnut = function(comelectric, reselectric) {
         {
             data: [comelectric, reselectric],
             backgroundColor: [
-                "#70E4EF",
-                "#4D6CFA"
+                "rgba(70,187,97,0.7)",
+                "rgba(130,220,170,0.7)"
             ],
             hoverBackgroundColor: [
-                "#48efff",
-                "#617eff"
+                "rgba(70,187,97,1)",
+                "rgba(130,220,170,1)"
             ]
         }]
 };

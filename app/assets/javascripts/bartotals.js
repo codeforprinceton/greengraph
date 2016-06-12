@@ -10,20 +10,20 @@ var datagasbar = {
     datasets: [
         {
             label: "Commercial",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
+            backgroundColor: "rgba(70,187,97,0.6)",
+            borderColor: "rgba(70,187,97,1)",
             borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
+            hoverBackgroundColor: "rgba(70,187,97,0.8)",
+            hoverBorderColor: "rgba(70,187,97,1)",
             data: [comgas],
         },
         {
             label: "Resedential",
-            backgroundColor: "rgba(155,99,132,0.2)",
-            borderColor: "rgba(155,99,132,1)",
+            backgroundColor: "rgba(130,220,170,0.6)",
+            borderColor: "rgba(130,220,170,1)",
             borderWidth: 1,
-            hoverBackgroundColor: "rgba(155,99,132,0.4)",
-            hoverBorderColor: "rgba(155,99,132,1)",
+            hoverBackgroundColor: "rgba(130,220,170,0.8)",
+            hoverBorderColor: "rgba(130,220,170,1)",
             data: [resgas],
         }
     ]
@@ -58,20 +58,20 @@ var dataelectricbar = {
     datasets: [
         {
             label: "Commercial",
-            backgroundColor: "rgba(255,99,132,0.2)",
-            borderColor: "rgba(255,99,132,1)",
+            backgroundColor: "rgba(70,187,97,0.6)",
+            borderColor: "rgba(70,187,97,1)",
             borderWidth: 1,
-            hoverBackgroundColor: "rgba(255,99,132,0.4)",
-            hoverBorderColor: "rgba(255,99,132,1)",
+            hoverBackgroundColor: "rgba(70,187,97,0.8)",
+            hoverBorderColor: "rgba(70,187,97,1)",
             data: [comelectric],
         },
         {
             label: "Resedential",
-            backgroundColor: "rgba(155,99,132,0.2)",
-            borderColor: "rgba(155,99,132,1)",
+            backgroundColor: "rgba(130,220,170,0.6)",
+            borderColor: "rgba(130,220,170,1)",
             borderWidth: 1,
-            hoverBackgroundColor: "rgba(155,99,132,0.4)",
-            hoverBorderColor: "rgba(155,99,132,1)",
+            hoverBackgroundColor: "rgba(130,220,170,0.8)",
+            hoverBorderColor: "rgba(130,220,170,1)",
             data: [reselectric],
         }
     ]

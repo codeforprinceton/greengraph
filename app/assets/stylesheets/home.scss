@@ -3,11 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .hometitle {
-    padding-top: 25px;
+    padding-top: 15px;
     padding-bottom: 15px;
 }
 
 .biggraph-margin {
+    padding-top: 25px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .nav-bordered > li {
@@ -48,8 +52,8 @@
 /* Header */
 .large-header {
 	position: relative;
-	width: 100%;
-	height: 80%;
+	width: 100vw !important;
+	height: 80vh !important;
 	background: #333;
 	overflow: hidden;
 	background-size: cover;
@@ -154,7 +158,7 @@
 }
 
    #homeindex .container {
-        width: 100% !important;
+        width: 100vw !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
         margin-left: 0 !important;
@@ -162,12 +166,18 @@
         overflow-x: hidden;
     }
     #homeindex .navbar-fixed-top {
-        display: none;
+	    display: none;
+	    padding-left: 5px !important;
+	    padding-right: 15px !important;
+	    background-color: rgba(55,55,55,0.8) !important;
+    }
+    #homeindex .navbar-right {
+        margin-right: 25px !important;
     }
     #homeindex .footer {
         position: absolute;
         right: 0px;
-        bottom: 5px;
+        bottom: 20vh;
         margin-top: -20px;
         z-index: 5;
         color: #ddd;
@@ -175,6 +185,11 @@
     #homeindex {
         padding-top:0px;
     }
+    #homeindex .dropdown-menu {
+        position: fixed !important;
+        top: 50px !important;
+    }
+    
     #homeindex #nprogress .bar {
         background: #568259;
         position: fixed;

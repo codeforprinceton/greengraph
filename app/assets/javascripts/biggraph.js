@@ -8,14 +8,25 @@ var biggraphdata = {
     datasets: [
         {
             label: "Energy usage in kWh",
-            fillColor: "rgba(219, 244, 173, .6)",
-            strokeColor: "rgba(86, 130, 89, 1)",
-            pointColor: "rgba(86, 130, 89, 1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(86, 130, 89, 1)",
-            data: bigchartdata
-          }
+            fill: true,
+            lineTension: 0.1,
+            backgroundColor: "rgba(48, 130, 89,0.4)",
+            borderColor: "rgba(48, 130, 89,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(48, 130, 89,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(48, 130, 89,1)",
+            pointHoverBorderColor: "rgba(48, 130, 89,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: bigchartdata,
+        }
     ]
 };
 
@@ -26,7 +37,7 @@ var biggraphoptions = {
     scaleShowGridLines : true,
 
     //String - Colour of the grid lines
-    scaleGridLineColor : "rgba(0,0,0,.05)",
+    scaleGridLineColor : "rgba(0,0,0,.15)",
 
     //Number - Width of the grid lines
     scaleGridLineWidth : 1,
