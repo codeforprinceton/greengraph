@@ -1,0 +1,32 @@
+<div class="home">
+  <div class="content">
+    <div id="large-header" class="large-header">
+      <canvas id="demo-canvas"></canvas>
+      <div class="main-title">
+        <h1>Greengraph</h1>
+        <div class="panel panel-default bigheading">
+        <div class="panel-body" style="padding-top: 0px;">
+        <h2 align="center">
+            Since 2009, Princeton used <b class="accent"><%= number_with_precision((@totalenergy / 1000), :precision => 0, :delimiter => ',') %> MWh<%= link_to "*", about_path, class: "accent" %></b> of energy. 
+            <br/>
+            That's <b class="accent"><%= number_with_precision(@totalco2, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> tons of CO2. 
+            Equivalent to <b class="accent"><%= number_with_precision(@totalcars, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> cars on the road, or driving your car for 
+            <b class="accent"><%= number_with_precision(@totalmiles, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> miles.
+            We would need <b class="accent"><%= number_with_precision(@totalacres / 5, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> acres of forest to offset that usage, 
+            or to have planted <b class="accent"><%= number_with_precision(@totalseedlings / 5, :precision => 0, :delimiter => ',') %><%= link_to "*", about_path, class: "accent" %></b> trees ten years ago.</h2>
+        </div>
+        </div>
+        <h2 style="color: #FFF">Ready to help make a change?</h2>
+        <br/>
+        <div align="center">
+            <a href="#start" class='button button--pipaluk button--inverted button--round-l button--text-thick button--text-upper'>Lets Get Started!</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  // start the pretty bubbles on the homepage
+  bubbles();
+</script>
+</div>
