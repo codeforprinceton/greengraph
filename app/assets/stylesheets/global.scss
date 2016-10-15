@@ -21,6 +21,10 @@ $accenttwo: #568259;
     transition: 0.4s all;
 }
 
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
 
 .accent {
     color: $accent;
