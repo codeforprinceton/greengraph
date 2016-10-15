@@ -54,6 +54,10 @@ You will need to use these commands to run the Application in Ruby on Rails...
  ```
 cd greengraph
 ```
+- Copy the /config/database.yml.example file to database.yml
+ ```
+cp config/database.yml.example config/database.yml
+```
 - Migrate the Development Database (Make it current)
  ```
 rake db:migrate RAILS_ENV=development
