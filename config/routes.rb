@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'home#index'
   match 'about', to: 'home#about', via: 'get', as: 'about'
   match 'start', to: 'home#getstarted', via: 'get', as: 'start'
@@ -23,5 +22,4 @@ Rails.application.routes.draw do
   match 'import/submitfile', to: 'import#submitfile', via: 'post', as: 'submitfile'
   match 'datasheets', to: 'datasheets#index', via: 'get', as: 'datasheets'
   match 'datasheets/statmodel', to: 'datasheets#statmodel', via: 'get', as: 'statmodel'
-
 end
