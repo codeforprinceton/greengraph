@@ -18,7 +18,7 @@ var datagasbar = {
             data: [comgas],
         },
         {
-            label: "Resedential",
+            label: "Residential",
             backgroundColor: "rgba(130,220,170,0.6)",
             borderColor: "rgba(130,220,170,1)",
             borderWidth: 1,
@@ -66,7 +66,7 @@ var dataelectricbar = {
             data: [comelectric],
         },
         {
-            label: "Resedential",
+            label: "Residential",
             backgroundColor: "rgba(130,220,170,0.6)",
             borderColor: "rgba(130,220,170,1)",
             borderWidth: 1,
